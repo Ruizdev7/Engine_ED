@@ -209,6 +209,24 @@ OBJECT-FIT
 contain
 cover
 none
+scale-down
+
+OBJECT-POSITION
+
+left
+right
+top
+bottom
+
+CURSOR
+
+pointer
+row-size
+
+RESPONSIVE DESIGN-MOBILE FIRST
+
+
+
 
 
 

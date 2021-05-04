@@ -1,60 +1,36 @@
-#Engine_ED
+#Engine ED
 
-Acá va un párrafo que describa lo que es el proyecto
-Comenzando rocket
+Engine ED es una aplicacion web que permite el control de la operacion sobre depositos electronicos de tramite simplificado soportados 
+legalmente por medio de la Ley 1735 de 2014, Conocida como la ley de inclusión financiera. Esta norma creó una “licencia financiera simplificada”, 
+la cual habilita el funcionamiento de las Sociedades Especializadas en Depósitos y Pagos Electrónicos (SEDPES). Decreto 1491 de 2015, 
+Este decreto es el que reglamenta a las SEDPES.
+
+Engine ED is a web application that allows the control of the operation on electronic deposits of simplified procedure legally supported by means
+of Law 1735 of 2014, known as the financial inclusion law. This norm created a “simplified financial license”, which enables the operation of the 
+Specialized Companies in Electronic Deposits and Payments (SEDPES). Decree 1491 of 2015, This decree is the one that regulates the SEDPES. 
+
+Comenzando
 
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
 Mira Deployment para conocer como desplegar el proyecto.
-Pre-requisitos clipboard
+
+Pre-requisitos
 
 Que cosas necesitas para instalar el software y como instalarlas
 
-Da un ejemplo
-
-Instalación wrench
-
-Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose
-
-Dí cómo será ese paso
-
-Da un ejemplo
-
-Y repite
-
-hasta finalizar
-
-Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo
 Ejecutando las pruebas gear
 
 Explica como ejecutar las pruebas automatizadas para este sistema
-Analice las pruebas end-to-end nut_and_bolt
+Analice las pruebas end-to-end
 
 Explica que verifican estas pruebas y por qué
-
-Da un ejemplo
-
-Y las pruebas de estilo de codificación keyboard
-
-Explica que verifican estas pruebas y por qué
-
-Da un ejemplo
-
-Despliegue package
-
-Agrega notas adicionales sobre como hacer deploy
-Construido con hammer_and_wrench
 
 Menciona las herramientas que utilizaste para crear tu proyecto
 
-    Dropwizard - El framework web usado
-    Maven - Manejador de dependencias
-    ROME - Usado para generar RSS
-
-Contribuyendo paperclips
+Contribuyendo
 
 Por favor lee el CONTRIBUTING.md para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-Wiki book
 
 Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra Wiki
 Versionado pushpin
