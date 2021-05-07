@@ -3,62 +3,55 @@
     <head>
         <meta charset="utf-8">
         <title>Registrate</title>
-        <link rel="stylesheet" href="../static/css/registroCliente.css">
-        <link rel="stylesheet" href="../static/css/normalize.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-        <link rel="shortcut icon" href="../static/imgs/LogoSEDPE.ico">
+        <link rel="stylesheet" href= "{{ url_for('static', filename='css/registroCliente.css') }}">
+        <link rel="stylesheet" href= "{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
     </head>
     <body>
         <form class="formulario">
             <h1>Registrate</h1>
                 <div class="contenedor">
                     <label for="tipoId">TIPO DE IDENTIFICACION</label>
-                    <select name="TIPO DE IDENTIFICACION" id="TIPO DE IDENTIFICACION">
+                    <select name="TIPO DE IDENTIFICACION" id="tipoId">
                         <option value="1">CC</option>
                         <option value="2">CE</option>
                         <option value="3">PA</option>
                         <option value="4">RC</option>
                         <option value="5">TI</option>
                     </select><br><br>
-                    <label for="start">FECHA EXPEDICION ID CLIENTE</label>
+
+                    <label for="fechaExpIdClient">FECHA EXPEDICION ID*</label>
                     <input type="date" id="fechaExpIdCliente" name="fechaExpIdCliente" value="1990-04-14" min="1990-01-01" max="2021-12-31"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">NUMERO DE IDENTIFICACION*</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">DIGITO DE VERIFICACION</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">PRIMER NOMBRE*</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">SEGUNDO NOMBRE</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">PRIMER APELLIDO*</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">SEGUNDO APELLIDO</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">FECHA DE NACIMIENTO</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">PDF IDENTIFICACION</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
+
+                    <label for="fname">PDF RUT</label>
                     <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="lname">Last name:</label>
-                    <input type="text" id="lname" name="lname"><br><br>
-                    <input type="submit" value="Submit">
+                </div>
+                <div>
+                    <button></button>
                 </div>
         </form>
 
