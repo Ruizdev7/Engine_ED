@@ -2,15 +2,44 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Login_Cliente</title>
+        <title>Login Cliente</title>
+        <!-- Etiquetas meta para que el navegador del cliente refresque automaticamente el cache de los archivos estaticos-->
+        <!--<meta http-equiv="Expires" content="0">-->
+        <!--<meta http-equiv="Last-Modified" content="0">-->
+        <!--<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">-->
+        <!--<meta http-equiv="Pragma" content="no-cache">-->
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
         <link rel="stylesheet" href= "{{ url_for('static', filename='styles/normalize.css') }}">
         <link rel="stylesheet" href= "{{ url_for('static', filename='styles/loginCliente.css') }}">
         <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
     </head>
 
     <body>
-        <a href="registroCliente">Sign up</a>
-        <a href="/">Volver</a>
+        <div class="container-all">
+            <div class="ctn-form">
+                <img class="Logo" src="{{ url_for('static', filename='imgs/LogoSEDPE.png') }}">
+                <h1 class="title">Iniciar Sesión</h1>
+
+                <form action="loginCliente_submit">
+                    <label for="correoElectronicoCliente">Email</label>
+                    <input type="email" id="correoElectronicoCliente"/>
+                    <label for="contraseñaCliente">Contraseña</label>
+                    <input type="password" id="contraseñaCliente"/>
+                    <input type="submit" value="Inciar Sesion"/>
+                </form>
+                <span class="text-footer">¿Aun no te has registrado?<a href="registroCliente">Sign up</a></span>
+            </div>
+
+            <div class="ctn-text">
+                <div class="capa"></div>
+                <h2 class="title-description">Ejemplo de un titulo</h2>
+                <p class="text-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <img src="{{ url_for('static', filename='imgs/working-at-night.jpg') }}">           
+            </div>        
+            <a href="/">Volver</a>
+        </div>
     </body>
- 
 </html>

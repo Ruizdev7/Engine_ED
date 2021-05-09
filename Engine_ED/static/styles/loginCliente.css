@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Serif;
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(90deg, #008E97, #01b5bf)
+    padding: 20px;
+}
+
+.container-all{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+}
+
+.ctn-form{
+    width: 80%;
+    padding: 40px;
+    background: #f7f7f7;
+}
+
+.logo {
+    width: 150px;
+    display: block;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 300;
+    color: #7a7a7a;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #7a7a7a;
+}
+
+
+input [type="email"],
+input [type="password"] {
+    width: 100%;
+    height: 30px;
+    background: rgba(0,0,0,0);
+    border: 0px;
+    outline: 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    color: ;
+    font-size: 16px;
+}
+
+input [type="submit"] {
+    width: 100%;
+    height: 50px;
+    margin-top: 60px;
+    color: white;
+    border: 0px;
+    background: linear-gradient(90deg, #008E97, #01b5bf);
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+input [type="submit"]:hover{
+    background: linear-gradient(90deg, #01b5bf, #008E97);
+}
+
+.text-footer {
+    display:block;
+    margin-top: 100px;
+    text-align: center;
+    color: 7a7a7a;
+    font-weight: 300;
+}
+
+.text-footer a {
+    color: #029EE1;
+    font-weight: 500;
+}
+
+/* LADO DERECHO */
+
+.ctn-text {
+    width: 100%;
+    background-image: url(../imgs/working-at-night.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
