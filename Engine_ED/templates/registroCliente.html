@@ -2,10 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <!-- Etiquetas meta para que el navegador del cliente refresque automaticamente el cache de los archivos estaticos-->
+        <!--<meta http-equiv="Expires" content="0">-->
+        <!--<meta http-equiv="Last-Modified" content="0">-->
+        <!--<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">-->
+        <!--<meta http-equiv="Pragma" content="no-cache">-->
         <title>Registrate</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/normalize.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/registroCliente.css') }}">
-        <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/registroCliente.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
     </head>
 
     <body>
@@ -134,8 +139,8 @@
                     </div>
                 </div>
         </form>
-
-    <a href="/">Volver</a>
+    <p>Al registrarte, aceptas nuestras condiciones de uso y politicas de privacidad</p>
+    <p>¿Ya tienes una cuenta?<a href="loginCliente">Iniciar Sesion</a></p>
     </body>
  
 </html>
