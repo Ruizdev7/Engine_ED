@@ -19,27 +19,28 @@
             <div class="ctn-form">
                 <img class="Logo" src="{{ url_for('static', filename='imgs/LogoSEDPE.png') }}">
                 <h1 class="title">Iniciar Sesión</h1>
-
-                <form action="loginCliente_submit">
+                <form>
                     <label for="correoElectronicoCliente">Email</label>
-                    <input type="email" id="correoElectronicoCliente"/>
+                    <input type="email" id="correoElectronicoCliente">
                     <label for="contraseñaCliente">Contraseña</label>
-                    <input type="password" id="contraseñaCliente"/>
-                    <input type="submit" value="Inciar Sesion"/>
+                    <input type="password" id="contraseñaCliente"><br>
+                    <input type="submit" value="Inciar Sesion"><br>
                 </form>
-                <span class="text-footer">¿Aun no te has registrado?<a href="registroCliente">Sign up</a></span>
+                <span class="text-footer">¿Aun no te has registrado?</span>
+                <a href="registroCliente">Sign up</a>
             </div>
 
             <div class="ctn-text">
                 <div class="capa"></div>
-                <h2 class="title-description">Ejemplo de un titulo</h2>
-                <p class="text-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                <img src="{{ url_for('static', filename='imgs/working-at-night.jpg') }}">           
+                    <h2 class="title-description">Ejemplo de un titulo</h2>
+                    <p class="text-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> 
             </div>        
-            <a href="/">Volver</a>
         </div>
     </body>
 </html>
+
+<!--<a href="/">Volver</a>-->
+

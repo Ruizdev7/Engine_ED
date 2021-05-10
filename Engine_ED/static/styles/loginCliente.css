@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Serif;
+    font-family: 'PT Sans', sans-serif;
     text-decoration: none;
 }
 
 body {
-    background: linear-gradient(90deg, #008E97, #01b5bf)
+    background: -moz-linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
     padding: 20px;
 }
 
@@ -17,16 +19,18 @@ body {
     margin: auto;
     margin-top: 100px;
     display: flex;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
-.ctn-form{
+.ctn-form {
     width: 80%;
     padding: 40px;
     background: #f7f7f7;
 }
 
-.logo {
-    width: 150px;
+.Logo {
+    width: 80px;
     display: block;
     margin: auto;
 }
@@ -46,46 +50,46 @@ label {
     color: #7a7a7a;
 }
 
-
-input [type="email"],
-input [type="password"] {
+input[type="email"], input[type="password"] {
     width: 100%;
     height: 30px;
     background: rgba(0,0,0,0);
     border: 0px;
     outline: 0px;
     border-bottom: 1px solid rgba(0,0,0,0.12);
-    color: ;
+    color: #008E97;
     font-size: 16px;
 }
 
-input [type="submit"] {
+input[type="submit"] {
     width: 100%;
     height: 50px;
     margin-top: 60px;
     color: white;
     border: 0px;
-    background: linear-gradient(90deg, #008E97, #01b5bf);
+    background: -moz-linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
 }
 
-input [type="submit"]:hover{
-    background: linear-gradient(90deg, #01b5bf, #008E97);
+input[type="submit"]:hover{
+    background: -moz-linear-gradient(right, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
 }
 
 .text-footer {
-    display:block;
-    margin-top: 100px;
+    display: block;
+    margin-top: 50px;
     text-align: center;
     color: 7a7a7a;
     font-weight: 300;
 }
 
-.text-footer a {
+a {
+    display: block;
     color: #029EE1;
     font-weight: 500;
+    text-align: center;
 }
 
 /* LADO DERECHO */
@@ -95,26 +99,48 @@ input [type="submit"]:hover{
     background-image: url(../imgs/working-at-night.jpg);
     background-position: center;
     background-size: cover;
+    padding: 40px;
+    position: relative;
 }
 
+.capa {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: -moz-linear-gradient(right, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    opacity: 0.8;
+}
 
+.title-description {
+    position: relative;
+    top: 80px;
+    color: white;
+    font-weight: 300;
+    font-size: 40px;
+}
 
+.text-description {
+    position: relative;
+    top: 110px;
+    color: white;
+    font-weight: 200;
+    font-size: 18px;
+}
 
+/* RESPONSIVE */
 
+@media screen and (max-width: 800px) {
+    
+    .ctn-text {
+        display: none;
+    }
+    
+    .ctn-form {
+        margin: auto;
+        width: 100%;
+        background: white;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
