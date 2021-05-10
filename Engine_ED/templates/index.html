@@ -1,110 +1,94 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <title>DETS</title>
-  <link rel="stylesheet" href="../static/styles/normalize.css">
-  <link rel="stylesheet" type="text/css" href="../static/styles/index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="../static/imgs/LogoSEDPE.ico">
-</head>
-
-<body>
-  <header>
-    <section class="navegador">
-      <div class="logo">
-        <a href="index.html"><img src="../static/imgs/LogoSEDPE-trasparent.png"></a>
-      </div>
+  <head>
+    <meta charset="utf-8">
+    <title>DETS</title>
+    <link rel="stylesheet" href= "{{ url_for('static', filename='styles/normalize.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='styles/index.css') }}">
+    <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
+  </head>
+  <body>
       <nav>
-        <div class="enlaces">
-          <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/">Productos</a></li>
-            <li><a href="/">Comerciantes</a></li>
-            <li><a href="/">Ayuda</a></li>
-            <li><a href="loginCliente">Ingreso Personas</a></li>
-          </ul>
-        </div>
+          <img src="../static/imgs/LogoSEDPE.png">
+          <a href="/">Inicio</a> |
+          <a href="/">Productos</a> |
+          <a href="/">Comerciantes</a> |
+          <a href="/">Ayuda</a> |
+          <a href="loginCliente">Ingreso Personas</a>
       </nav>
-    </section>
-  </header>
-  <div class="contenedor">
-    <h2>EL SISTEMA FINANCIERO A UN CLICK</h2>
-    <p><strong>DETS</strong> transforma tus ahorros y pagos por diferentes conceptos sin ningun costo
-      y de manera instantanea para que los uses facilmente y disfrutes tu tiempo como tu quieras</p>
 
-    <div>
-      <h1><strong>COMO FUNCIONA TU DEPOSITO</strong></h1>
-      <p>DETS es mas que un deposito electronico, es la puerta de entrada al sistema financiero y la posibilidad de
-        automatizar muchos de tus pagos</p>
-    </div>
+      <div>
+          <h2>EL SISTEMA FINANCIERO A UN CLICK</h2>
+          <p><strong>DETS</strong> transforma tus ahorros y pagos por diferentes conceptos sin ningun costo
+          y de manera instantanea para que los uses facilmente y disfrutes tu tiempo como tu quieras</p>
 
-    <div>
-      <h3>1.Crea tue cuenta</h3>
-      <p>Ingresa a nuestro portal web, registrate y abre tu deposito electronico en pocos minutos</p>
-    </div>
+        <div>
+            <h1><strong>COMO FUNCIONA TU DEPOSITO</strong></h1>
+            <p>DETS es mas que un deposito electronico, es la puerta de entrada al sistema financiero y la posibilidad de automatizar muchos de tus pagos</p>
+        </div>           
+        
+        <div>
+            <h3>1.Crea tue cuenta</h3>
+            <p>Ingresa a nuestro portal web, registrate y abre tu deposito electronico en pocos minutos</p>
+        </div>
 
-    <div>
-      <h3>2.Deposita</h3>
-      <p>Una vez registrado ingresa a su portal transaccional web y realiza un deposito a travez de PSE</p>
-    </div>
+        <div>
+            <h3>2.Deposita</h3>
+            <p>Una vez registrado ingresa a su portal transaccional web y realiza un deposito a travez de PSE</p>
+        </div>
 
-    <div>
-      <h3>3.Paga o Transfiere</h3>
-      <p>Desde su portal transaccional web podra realizar pagos a comercios y servicios afiliados o transfiere recursos
-        a otros depositos electronicos</p>
-    </div>
-  </div>
+        <div>
+            <h3>3.Paga o Transfiere</h3>
+            <p>Desde su portal transaccional web podra realizar pagos a comercios y servicios afiliados o transfiere recursos a otros depositos electronicos</p>
+        </div>
+      </div>
 
-  <div>
-    <h2>SUS DEPOSITOS ELECTRONICOS SE ENCUENTRAN SEGUROS</h2>
+      <div>
+          <h2>SUS DEPOSITOS ELECTRONICOS SE ENCUENTRAN SEGUROS</h2>
+          
+          <div>
+            <img src="../static/imgs/vigilado-superintendencia-financiera-de-colombia.png">
+            <p>En DETS tu tranquilidad es nuestro prioridad por esto somos una entidad financiera vigilada por la Superintendencia Financiera de Colombia</p>
+             <button type="button">Conoce mas</button> 
+          </div>           
+        
+          <div>
+            <img src="../static/imgs/Fogafin.jpg">
+            <p></p>
+            <button type="button">Conoce mas</button>
+          </div>
+      </div>
 
-    <div>
-      <img src="../static/imgs/vigilado-superintendencia-financiera-de-colombia.png">
-      <p>En DETS tu tranquilidad es nuestro prioridad por esto somos una entidad financiera vigilada por la
-        Superintendencia Financiera de Colombia</p>
-      <button type="button">Conoce mas</button>
-    </div>
+      <div>
+          <img src="../static/imgs/Medio Ambiente.jpg">
 
-    <div>
-      <img src="../static/imgs/Fogafin.jpg">
-      <p></p>
-      <button type="button">Conoce mas</button>
-    </div>
-  </div>
+          <h2>NO SOLO AHORRAS TIEMPO, TAMBIEN PONES TU GRANITO DE ARENA AL MEDIO AMBIENTE</h2>
+          
+          <div>
+             <p>Al ahorrar mediante depositos de dinero electronico estas poniendo tu granito de arena
+             contra el cambio climatico, Los contratos, reportes y tramites se hacen de manera digital asi estas
+             reduciendo la huella del uso del papel y ayudas a reducir la tala de los arboles que la componen</p>
+          </div>           
+      </div>
 
-  <div>
-    <img src="../static/imgs/Medio Ambiente.jpg">
-
-    <h2>NO SOLO AHORRAS TIEMPO, TAMBIEN PONES TU GRANITO DE ARENA AL MEDIO AMBIENTE</h2>
-
-    <div>
-      <p>Al ahorrar mediante depositos de dinero electronico estas poniendo tu granito de arena
-        contra el cambio climatico, Los contratos, reportes y tramites se hacen de manera digital asi estas
-        reduciendo la huella del uso del papel y ayudas a reducir la tala de los arboles que la componen</p>
-    </div>
-  </div>
-
-  <footer>
-    <div>
-      <h2>DETS TE ACOMPAÑA A CREAR TU HISTORIAL CREDITICIO</h2>
-      <p>DETS permite que por medio del movimiento que se genere del uso de tu deposito electronico
-        crear un historico crediticio que puede darte acceso a productos financieros tales como creditos.</p>
-    </div>
-    <ul>
-      <li> <a href="#">Politicas de uso y proteccion de datos</a></li>
-      <li> <a href="#">Terminos y condiciones generales</a></li>
-      <li> <a href="#">Contrato de Depositos ElectronicosDETS</a></li>
-      <li> <a href="#">Defensor del consumidor financiero</a></li>
-      <li> <a href="#">Educacion Financiera</a></li>
-      <li> <a href="#">Certificacion SARLAFT</a></li>
-      <li> <a href="#">Tarifas de servicios</a></li>
-      <li> <a href="#">Gobierno Corporativo</a></li>
-    </ul>
-    <p>Autor: Joseph Ruiz</p>
-    <a href="https://www.linkedin.com/in/ruizdev7" target="_blank">Profile LinkedIn</a>
-  </footer>
-</body>
-
+    <footer>
+        <div>
+            <h2>DETS TE ACOMPAÑA A CREAR TU HISTORIAL CREDITICIO</h2>
+            <p>DETS permite que por medio del movimiento que se genere del uso de tu deposito electronico
+            crear un historico crediticio que puede darte acceso a productos financieros tales como creditos.</p>
+        </div>
+        <ul>
+            <li> <a href="#">Politicas de uso y proteccion de datos</a></li>
+            <li> <a href="#">Terminos y condiciones generales</a></li>
+            <li> <a href="#">Contrato de Depositos ElectronicosDETS</a></li>
+            <li> <a href="#">Defensor del consumidor financiero</a></li>
+            <li> <a href="#">Educacion Financiera</a></li>
+            <li> <a href="#">Certificacion SARLAFT</a></li>
+            <li> <a href="#">Tarifas de servicios</a></li>
+            <li> <a href="#">Gobierno Corporativo</a></li>
+        </ul>
+        <p>Autor: Joseph Ruiz</p>
+        <a href="https://www.linkedin.com/in/ruizdev7" target="_blank">Profile LinkedIn</a>
+    </footer>
+  </body>
 </html>
