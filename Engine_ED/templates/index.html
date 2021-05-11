@@ -7,16 +7,26 @@
     <link rel="stylesheet" href= "{{ url_for('static', filename='styles/index.css') }}">
     <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
   </head>
-  <body>
+  
+<body>
+  <header>
+    <section class="navegador">
+      <div class="logo">
+        <a href="index.html"><img src="../static/imgs/LogoSEDPE-trasparent.png"></a>
+      </div>
       <nav>
-          <img src="../static/imgs/LogoSEDPE.png">
-          <a href="/">Inicio</a> |
-          <a href="/">Productos</a> |
-          <a href="/">Comerciantes</a> |
-          <a href="/">Ayuda</a> |
-          <a href="loginCliente">Ingreso Personas</a>
+        <div class="enlaces">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/">Productos</a></li>
+            <li><a href="/">Comerciantes</a></li>
+            <li><a href="/">Ayuda</a></li>
+            <li><a href="loginCliente">Ingreso Personas</a></li>
+          </ul>
+        </div>
       </nav>
-
+    </section>
+  </header>
       <div>
           <h2>EL SISTEMA FINANCIERO A UN CLICK</h2>
           <p><strong>DETS</strong> transforma tus ahorros y pagos por diferentes conceptos sin ningun costo
