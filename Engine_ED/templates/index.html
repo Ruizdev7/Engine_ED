@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>DETS</title>
-    <link rel="stylesheet" href= "{{ url_for('static', filename='styles/normalize.css') }}">
-    <link rel="stylesheet" href= "{{ url_for('static', filename='styles/index.css') }}">
-    <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
-  </head>
-  
+
+<head>
+  <meta charset="utf-8">
+  <title>DETS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/normalize.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
 <body>
   <header>
     <section class="navegador">
       <div class="logo">
-        <a href="index.html"><img src="../static/imgs/LogoSEDPE-trasparent.png"></a>
+        <a href="/"><img src="../static/imgs/LogoSEDPE-transparent.png.png"></a>
       </div>
       <nav>
         <div class="enlaces">
@@ -27,67 +29,118 @@
       </nav>
     </section>
   </header>
-      <div>
+
+  <section class="contenedor1">
+    <div>
+      <div class="grid">
+        <div class="textos-sistema">
           <h2>EL SISTEMA FINANCIERO A UN CLICK</h2>
           <p><strong>DETS</strong> transforma tus ahorros y pagos por diferentes conceptos sin ningun costo
-          y de manera instantanea para que los uses facilmente y disfrutes tu tiempo como tu quieras</p>
-
+            y de manera instantanea para que los uses facilmente y disfrutes tu tiempo como tu quieras</p>
+        </div>
+        <div class="imagen-section1">
+          <img src="../static/imgs/pagina-web.png">
+        </div>
         <div>
-            <h1><strong>COMO FUNCIONA TU DEPOSITO</strong></h1>
-            <p>DETS es mas que un deposito electronico, es la puerta de entrada al sistema financiero y la posibilidad de automatizar muchos de tus pagos</p>
-        </div>           
-        
-        <div>
+  </section>
+  </div>
+  <div class="textos-sistema2">
+    <div class="grid">
+      <div class="primera-parte">
+        <h1><strong>¿COMO FUNCIONA TU DEPOSITO?</strong></h1>
+        <p>DETS es mas que un deposito electronico, es la puerta de entrada al sistema financiero y la posibilidad
+          de
+          automatizar muchos de tus pagos</p>
+      </div>
+    </div>
+  </div>
+  <main>
+    <section class="tarjetas">
+      <div class="grid">
+        <div class="items">
+          <div class="item">
+            <img src="../static/icon/icons8-cuenta-de-correo-64.png"></img>
             <h3>1.Crea tue cuenta</h3>
             <p>Ingresa a nuestro portal web, registrate y abre tu deposito electronico en pocos minutos</p>
-        </div>
+            <div class="main-button">
+              <button type="button">conoce mas</button>
+            </div>
+          </div>
 
-        <div>
+          <div class="item">
+            <img src="../static/icon/icons8-solicitud-de-dinero-64.png">
             <h3>2.Deposita</h3>
             <p>Una vez registrado ingresa a su portal transaccional web y realiza un deposito a travez de PSE</p>
-        </div>
-
-        <div>
-            <h3>3.Paga o Transfiere</h3>
-            <p>Desde su portal transaccional web podra realizar pagos a comercios y servicios afiliados o transfiere recursos a otros depositos electronicos</p>
-        </div>
-      </div>
-
-      <div>
-          <h2>SUS DEPOSITOS ELECTRONICOS SE ENCUENTRAN SEGUROS</h2>
-          
-          <div>
-            <img src="../static/imgs/vigilado-superintendencia-financiera-de-colombia.png">
-            <p>En DETS tu tranquilidad es nuestro prioridad por esto somos una entidad financiera vigilada por la Superintendencia Financiera de Colombia</p>
-             <button type="button">Conoce mas</button> 
-          </div>           
-        
-          <div>
-            <img src="../static/imgs/Fogafin.jpg">
-            <p></p>
-            <button type="button">Conoce mas</button>
+            <div class="intermi-button">
+              <button type="button">conoce mas</button>
+            </div>
           </div>
-      </div>
 
-      <div>
-          <img src="../static/imgs/Medio Ambiente.jpg">
-
-          <h2>NO SOLO AHORRAS TIEMPO, TAMBIEN PONES TU GRANITO DE ARENA AL MEDIO AMBIENTE</h2>
-          
-          <div>
-             <p>Al ahorrar mediante depositos de dinero electronico estas poniendo tu granito de arena
-             contra el cambio climatico, Los contratos, reportes y tramites se hacen de manera digital asi estas
-             reduciendo la huella del uso del papel y ayudas a reducir la tala de los arboles que la componen</p>
-          </div>           
-      </div>
-
-    <footer>
-        <div>
-            <h2>DETS TE ACOMPAÑA A CREAR TU HISTORIAL CREDITICIO</h2>
-            <p>DETS permite que por medio del movimiento que se genere del uso de tu deposito electronico
-            crear un historico crediticio que puede darte acceso a productos financieros tales como creditos.</p>
+          <div class="item">
+            <img src="../static/icon/icons8-pago-con-el-móvil-64.png">
+            <h3>3.Paga o Transfiere</h3>
+            <p>Desde su portal transaccional web podra realizar pagos a comercios y servicios afiliados o transfiere
+              recursos
+              a otros depositos electronicos</p>
+            <div class="ultimate-button">
+              <button type="button">conoce mas</button>
+            </div>
+          </div>
         </div>
-        <ul>
+    </section>
+  </main>
+  <div class="titulo-depositos">
+    <div class="grid">
+      <h2>SUS DEPOSITOS ELECTRONICOS SE ENCUENTRAN SEGUROS</h2>
+    </div>
+  </div>
+  <section class="contenedor2">
+    <div class="grid">
+      <div class="parrafo-1">
+        <img src="../static/imgs/superfinanciera.jpg">
+        <p>En DETS tu tranquilidad es nuestro prioridad por esto somos una entidad financiera vigilada por la
+          Superintendencia Financiera de Colombia</p>
+        <button type="button" class="button-parrafos">Conoce mas</button>
+      </div>
+
+      <div class="parrafo-2">
+        <img src="../static/imgs/Fogafin.jpg">
+        <p>Al ser una entidad financiera el gobierno de Colombia a través de fofafin, asegura tu deposito DETS por hasta
+          $50.000.000</p>
+        <button type="button" class="button-parrafos">Conoce mas</button>
+      </div>
+    </div>
+  </section>
+  <section class="contenedor3">
+    <div class="grid">
+      <div class="medio-amb">
+        <img src="../static/imgs/medio-ambiente.jpeg">
+
+        <h2>NO SOLO AHORRAS TIEMPO, TAMBIEN PONES TU GRANITO DE ARENA AL MEDIO AMBIENTE</h2>
+
+        <div>
+          <p>Al ahorrar mediante depositos de dinero electronico estas poniendo tu granito de arena
+            contra el cambio climatico, Los contratos, reportes y tramites se hacen de manera digital asi estas
+            reduciendo la huella del uso del papel y ayudas a reducir la tala de los arboles que la componen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="contenedor4">
+    <footer>
+      <div class="grid">
+        <div class="textos-footer">
+          <h2>DETS TE ACOMPAÑA A CREAR TU HISTORIAL CREDITICIO</h2>
+          <p>DETS permite que por medio del movimiento que se genere del uso de tu deposito electronico
+            crear un historico crediticio que puede darte acceso a productos financieros tales como creditos.</p>
+          <a href="#"><img src="../static/icon/icons8-facebook-50.png"></a>
+          <a href="#"><img src="../static/icon/icons8-github-50.png"></a>
+          <a href="#"><img src="../static/icon/icons8-instagram-50.png"></a>
+          <a href="https://www.linkedin.com/in/ruizdev7" target="_blank"><img
+              src="../static/icon/icons8-linkedin-50.png"></a>
+        </div>
+        <div class="enlaces-footer">
+          <ul>
             <li> <a href="#">Politicas de uso y proteccion de datos</a></li>
             <li> <a href="#">Terminos y condiciones generales</a></li>
             <li> <a href="#">Contrato de Depositos ElectronicosDETS</a></li>
@@ -96,9 +149,18 @@
             <li> <a href="#">Certificacion SARLAFT</a></li>
             <li> <a href="#">Tarifas de servicios</a></li>
             <li> <a href="#">Gobierno Corporativo</a></li>
-        </ul>
-        <p>Autor: Joseph Ruiz</p>
-        <a href="https://www.linkedin.com/in/ruizdev7" target="_blank">Profile LinkedIn</a>
+          </ul>
+        </div>
+        <section class="imagenFooter">
+          <img src="../static/imgs/fofafin.png">
+          <img src="../static/imgs/sfc.jpg">
+        </section>
+      </div>
     </footer>
-  </body>
+  </section>
+  <div class="titulo-final-d">
+    <h2 class="titulo-final">&copy; Jdso Desing | DETS 2021, DERECHOS RESERVADOS</h2>
+  </div>
+</body>
+
 </html>

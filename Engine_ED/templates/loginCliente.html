@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Login Cliente</title>
-        <!-- Etiquetas meta para que el navegador del cliente refresque automaticamente el cache de los archivos estaticos-->
-        <!--<meta http-equiv="Expires" content="0">-->
-        <!--<meta http-equiv="Last-Modified" content="0">-->
-        <!--<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">-->
-        <!--<meta http-equiv="Pragma" content="no-cache">-->
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
-        <link rel="stylesheet" href= "{{ url_for('static', filename='styles/normalize.css') }}">
-        <link rel="stylesheet" href= "{{ url_for('static', filename='styles/loginCliente.css') }}">
-        <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
-    </head>
 
-    <body>
-        <div class="container-all">
-            <div class="ctn-form">
-                <img class="Logo" src="{{ url_for('static', filename='imgs/LogoSEDPE.png') }}">
-                <h1 class="title">Iniciar Sesión</h1>
-                <form>
-                    <label for="correoElectronicoCliente">Email</label>
-                    <input type="email" id="correoElectronicoCliente">
-                    <label for="contraseñaCliente">Contraseña</label>
-                    <input type="password" id="contraseñaCliente"><br>
-                    <input type="submit" value="Inciar Sesion"><br>
-                </form>
-                <span class="text-footer">¿Aun no te has registrado?</span>
-                <a href="registroCliente">Sign up</a>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <title>Login Cliente</title>
+    <!-- Etiquetas meta para que el navegador del cliente refresque automaticamente el cache de los archivos estaticos-->
+    <!--<meta http-equiv="Expires" content="0">-->
+    <!--<meta http-equiv="Last-Modified" content="0">-->
+    <!--<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">-->
+    <!--<meta http-equiv="Pragma" content="no-cache">-->
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/loginCliente.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
+</head>
 
-            <div class="ctn-text">
-                <div class="capa"></div>
-                    <h2 class="title-description">Ejemplo de un titulo</h2>
-                    <p class="text-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> 
-            </div>        
+<body>
+    <div class="container-all">
+        <div class="ctn-form">
+            <img class="Logo" src="{{ url_for('static', filename='imgs/LogoSEDPE.png') }}">
+            <h1 class="title">Iniciar Sesión</h1>
+            <form>
+                <label for="correoElectronicoCliente">Email</label>
+                <input type="email" id="correoElectronicoCliente">
+                <label for="contraseñaCliente">Contraseña</label>
+                <input type="password" id="contraseñaCliente"><br>
+                <input type="submit" value="Inciar Sesion"><br>
+            </form>
+            <span class="text-footer">¿Aun no te has registrado?</span>
+            <a href="registroCliente">Sign up</a>
         </div>
-    </body>
+
+        <div class="ctn-text">
+            <div class="capa"></div>
+            <h2 class="title-description">Ejemplo de un titulo</h2>
+            <p class="text-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+</body>
+
 </html>
 
 <!--<a href="/">Volver</a>-->
-

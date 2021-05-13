@@ -10,10 +10,12 @@
 
 body {
     background: -moz-linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: -webkit-linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
     padding: 20px;
 }
 
-.container-all{
+.container-all {
     width: 100%;
     max-width: 1000px;
     margin: auto;
@@ -50,13 +52,14 @@ label {
     color: #7a7a7a;
 }
 
-input[type="email"], input[type="password"] {
+input[type="email"],
+input[type="password"] {
     width: 100%;
     height: 30px;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     border: 0px;
     outline: 0px;
-    border-bottom: 1px solid rgba(0,0,0,0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     color: #008E97;
     font-size: 16px;
 }
@@ -68,13 +71,17 @@ input[type="submit"] {
     color: white;
     border: 0px;
     background: -moz-linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: -webkit-linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
     font-weight: 300;
     cursor: pointer;
     font-size: 18px;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     background: -moz-linear-gradient(right, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: -webkit-linear-gradient(right, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: linear-gradient(right, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
 }
 
 .text-footer {
@@ -110,6 +117,8 @@ a {
     top: 0;
     left: 0;
     background: -moz-linear-gradient(right, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: -webkit-linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
+    background: linear-gradient(left, #008e97 0%, #00bdc4 42%, #00d7ea 76%, #00d7ea 76%, #00d7ea 100%);
     opacity: 0.8;
 }
 
@@ -132,11 +141,11 @@ a {
 /* RESPONSIVE */
 
 @media screen and (max-width: 800px) {
-    
+
     .ctn-text {
         display: none;
     }
-    
+
     .ctn-form {
         margin: auto;
         width: 100%;
