@@ -15,5 +15,9 @@ def registroCliente():
 def loginCliente():
     return render_template('loginCliente.html')
 
+@app.route('/baseModulos')
+def baseModulos():
+    return render_template('baseModulos.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
