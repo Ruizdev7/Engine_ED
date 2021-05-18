@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Etiquetas meta para que el navegador del cliente refresque automaticamente el cache de los archivos estaticos-->
+        <!--<meta http-equiv="Expires" content="0">-->
+        <!--<meta http-equiv="Last-Modified" content="0">-->
+        <!--<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">-->
+        <!--<meta http-equiv="Pragma" content="no-cache">-->
+        <title>Registrate</title>
+        <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles/normalize.css') }}">-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/registroCliente.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
+    </head>
 
+    <body>
+        <form class="formRegistro">
+            <h1>Registrate</h1>
+                <div class="formRegistro__contenedor">
+
+                    <div class="formRegistro__contenedor--elemento1">
+                        <label for="tipoId">TIPO DE IDENTIFICACION</label>
+                        <select id="tipoId">
+                            <option value="1">CC</option>
+                            <option value="2">CE</option>
+                            <option value="3">PA</option>
+                            <option value="4">RC</option>
+                            <option value="5">TI</option>
+                            </select><br><br>
+                    </div>
+
+                    <div>
+                        <label for="fechaExpIdClient">FECHA EXPEDICION ID*</label>
+                        <input type="date" id="fechaExpIdCliente" value="1990-04-14" min="1990-01-01" max="2021-12-31"><br><br> 
+                    </div>                       
+                    
+                    <div>
+                        <label for="numeroIdCliente">NUMERO DE IDENTIFICACION*</label>
+                        <input type="number" id="numeroIdCliente"><br><br>
+                    </div>
+
+                    <div>
+                        <label for="digVerCliente">DIGITO DE VERIFICACION</label>
+                        <input type="number" id="digVerCliente"><br><br>
+                    </div>
+                       
+                    <div>
+                       <label for="primerNombreCliente">PRIMER NOMBRE*</label>
+                       <input type="text" id="primerNombreCliente"><br><br>
+                    </div> 
+                            
+                    <div>
+                        <label for="fname">SEGUNDO NOMBRE</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                    </div>           
+
+                    <div>
+                        <label for="fname">PRIMER APELLIDO*</label>
+                        <input type="text" id="fname" name="fname"><br><br>                   
+                    </div>
+
+                    <div>
+                        <label for="fname">SEGUNDO APELLIDO</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                    </div>
+
+                    <div>
+                        <label for="fname">FECHA DE NACIMIENTO</label>
+                        <input type="date" id="fname" name="fname"><br><br>
+                    </div>
+
+                    <div>
+                        <label for="fname">PDF IDENTIFICACION</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                    </div>
+
+                    <div>
+                        <label for="fname">PDF RUT</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                    </div>
+
+                    <div>
+                        <label for="fname">ACTIVIDAD ECONOMICA</label>
+                        <input type="text" id="fname" name="fname"><br><br>           
+                    </div>
+
+                    <div>
+                        <label for="fname">ESTRATO SOCIAL</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                    </div>
+                  
+                    <div>
+                        <label for="fname">CIUDAD</label>
+                        <input type="text" id="fname" name="fname"><br><br>              
+                    </div>
+
+                    <div>
+                        <label for="fname">DEPARTAMENTO</label>
+                        <input type="text" id="fname" name="fname"><br><br>                 
+                    </div>
+
+                    <div>
+                        <label for="fname">PAIS</label>
+                        <input type="text" id="fname" name="fname"><br><br>                  
+                    </div>
+
+                    <div>
+                        <label for="fname">CORREO ELECTRONICO PRINCIPAL*</label>
+                        <input type="text" id="fname" name="fname"><br><br>                   
+                    </div>
+
+                    <div>
+                        <label for="fname">CORREO ELECTRONICO SECUNDARIO</label>
+                        <input type="text" id="fname" name="fname"><br><br>                     
+                    </div>
+
+                    <div>
+                        <label for="fname">CELULAR*</label>
+                        <input type="text" id="fname" name="fname"><br><br>                     
+                    </div>
+
+                    <div>
+                        <label for="fname">DIRECCION EMPLEADO</label>
+                        <input type="text" id="fname" name="fname"><br><br>                      
+                    </div>
+
+                    <div>
+                        <label for="fname">BARRIO</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                    </div>
+
+                    <div>
+                        <label for="fname">FOTOGRAFIA</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                    </div>
+
+                    <div>
+                        <button>Registrate</button>
+                   </div>
+                </div>
+        </form>
+
+    </body>
+ 
+</html>
