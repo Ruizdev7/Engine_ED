@@ -1,0 +1,27 @@
+{
+    "name": "engine_ed",
+    "version": "1.0.0",
+    "description": "Engine ED es una aplicacion web que permite el control de la operacion sobre depositos electronicos de tramite simplificado soportados  legalmente por medio de la Ley 1735 de 2014, Conocida como la ley de inclusión financiera. Esta norma creó una “licencia financiera simplificada”,  la cual habilita el funcionamiento de las Sociedades Especializadas en Depósitos y Pagos Electrónicos (SEDPES). Decreto 1491 de 2015,  Este decreto es el que reglamenta a las SEDPES.",
+    "main": "index.js",
+    "scripts": {
+        "sass": "sass --watch ./styles/sass/index.scss ./styles/index.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jadso3145/Engine_ED.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jadso3145/Engine_ED/issues"
+    },
+    "homepage": "https://github.com/jadso3145/Engine_ED#readme",
+    "dependencies": {
+        "@material-ui/icons": "^4.11.2",
+        "axios": "^0.21.1",
+        "bootstrap": "^5.0.2",
+        "gsap": "^3.7.0",
+        "sass": "^1.35.1"
+    }
+}
