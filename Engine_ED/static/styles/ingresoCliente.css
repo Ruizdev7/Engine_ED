@@ -1,0 +1,130 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.ola {
+  position: fixed;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+.container .img {
+  display: flex;
+  align-items: center;
+}
+.container .img img {
+  width: 500px;
+}
+.container .logingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .logingContainer .avatar {
+  margin-bottom: 7px;
+}
+.container .logingContainer form {
+  width: 90%;
+  min-width: 400px;
+  padding: 4.5em 3em;
+  background-repeat: 10px;
+  text-align: center;
+}
+.container .logingContainer form .linkRegistro {
+  font-weight: 300;
+  margin-top: 15px;
+}
+.container .logingContainer form .linkRegistro p a {
+  font-weight: 400;
+  color: black;
+}
+.container .logingContainer form h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+  color: #2b3b4e;
+}
+.container .logingContainer form .inputDiv {
+  display: grid;
+  gap: 2.5em;
+  margin-top: 3em;
+}
+.container .logingContainer form .inputDiv .inputG {
+  position: relative;
+}
+.container .logingContainer form .inputDiv .inputG .input {
+  width: 80%;
+  background: none;
+  font-size: 1rem;
+  padding: 0.6em 0.3em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #2b3b4e;
+  margin-top: 10px;
+}
+.container .logingContainer form .inputDiv .inputG .titleInput {
+  color: #2b3b4e;
+  cursor: pointer;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transition: transform 0.5s, color 0.3s;
+}
+.container .logingContainer form .btn {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #2b3b4e, #2b3b4e, #2b3b4e);
+  color: #fff;
+  text-transform: uppercase;
+  background-size: 200%;
+}
+.container .logingContainer form .btn:hover {
+  background-position: right;
+  background-image: linear-gradient(to right, #2b3b4e9b, #2b3b4e9b, #2b3b4e9b);
+}
+.container .logingContainer form .one {
+  margin-top: 0px;
+}
+.container .logingContainer form .two {
+  margin-bottom: 4px;
+}
+.container .logingContainer .avatar {
+  width: 100px;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .img {
+    display: none;
+  }
+
+  .ola {
+    display: none;
+  }
+
+  .logingContainer {
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=ingresoCliente.css.map */
