@@ -225,6 +225,9 @@ def editarEmpleado(ccnEmpleado):
     print(empleado)
     return render_template('moduloAdminSistema/editarEmpleado.html', empleado = empleado, form = form)
 
+@app.route('/basePortalTransaccional')
+def base ():
+    return render_template('portalTransaccional/basePortalTransaccional.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)

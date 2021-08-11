@@ -1,159 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Registro Cliente</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE-transparent.png.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/normalize.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles/registroCliente.css">
 </head>
+
 <body>
-    <h2 style="text-align: center; margin-top: 30px;">FORMULARIO PARA REGISTRO DE CLIENTES</h2>
-    <form action="/registroCliente" method="POST" enctype="multipart/form-data">
+    <div class="imgAvatar">
+        <img class="avatar" src="../static/imgs/icon/avatar_male.svg">
+        <h2 style="text-align: center; margin-top: 30px;">REGISTRARSE</h2>
+    </div>
+    <form action="/registroCliente" method="POST" enctype="multipart/form-data" class="divForm">
+
         {{ form.hidden_tag() }}
 
-        <div class="form-group m-5">
-            {{ form.numeroIdCliente.label() }}
-            {{ form.numeroIdCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.numeroIdCliente.label(class="titleInput") }}
+            {{ form.numeroIdCliente(class="input") }}
             {% for error in form.numeroIdCliente.errors %}
-                <span>{{ error }}</span>
+            <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.tipoId.label() }}
-            {{ form.tipoId(class="form-control") }}
+        <div class="divInput">
+            {{ form.tipoId.label(class="titleInput") }}
+            {{ form.tipoId(class="input") }}
             {% for error in form.tipoId.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.fechaExpIdCliente.label() }}
-            {{ form.fechaExpIdCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.fechaExpIdCliente.label(class="titleInput") }}
+            {{ form.fechaExpIdCliente(class="input") }}
             {% for error in form.fechaExpIdCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.lugarExpIdCliente.label() }}
-            {{ form.lugarExpIdCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.lugarExpIdCliente.label(class="titleInput") }}
+            {{ form.lugarExpIdCliente(class="input") }}
             {% for error in form.lugarExpIdCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.primerNombreCliente.label() }}
-            {{ form.primerNombreCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.primerNombreCliente.label(class="titleInput") }}
+            {{ form.primerNombreCliente(class="input") }}
             {% for error in form.primerNombreCliente.errors %}
-                <span>{{ error }}</span>
+            <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.segundoNombreCliente.label() }}
-            {{ form.segundoNombreCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.segundoNombreCliente.label(class="titleInput") }}
+            {{ form.segundoNombreCliente(class="input") }}
             {% for error in form.segundoNombreCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.primerApellidoCliente.label() }}
-            {{ form.primerApellidoCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.primerApellidoCliente.label(class="titleInput") }}
+            {{ form.primerApellidoCliente(class="input") }}
             {% for error in form.primerApellidoCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.segundoApellidoCliente.label() }}
-            {{ form.segundoApellidoCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.segundoApellidoCliente.label(class="titleInput") }}
+            {{ form.segundoApellidoCliente(class="input") }}
             {% for error in form.segundoApellidoCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.fechaNacimientoCliente.label() }}
-            {{ form.fechaNacimientoCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.fechaNacimientoCliente.label(class="titleInput") }}
+            {{ form.fechaNacimientoCliente(class="input") }}
             {% for error in form.fechaNacimientoCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.direccionCliente.label() }}
-            {{ form.direccionCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.direccionCliente.label(class="titleInput") }}
+            {{ form.direccionCliente(class="input") }}
             {% for error in form.direccionCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.barrioCliente.label() }}
-            {{ form.barrioCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.barrioCliente.label(class="titleInput") }}
+            {{ form.barrioCliente(class="input") }}
             {% for error in form.barrioCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.idPais.label() }}
-            {{ form.idPais(class="form-control") }}
+        <div class="divInput">
+            {{ form.idPais.label(class="titleInput") }}
+            {{ form.idPais(class="input") }}
             {% for error in form.idPais.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.idDepartamento.label() }}
-            {{ form.idDepartamento(class="form-control") }}
+        <div class="divInput">
+            {{ form.idDepartamento.label(class="titleInput") }}
+            {{ form.idDepartamento(class="input") }}
             {% for error in form.idDepartamento.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.idMunicipio.label() }}
-            {{ form.idMunicipio(class="form-control") }}
+        <div class="divInput">
+            {{ form.idMunicipio.label(class="titleInput") }}
+            {{ form.idMunicipio(class="input") }}
             {% for error in form.idMunicipio.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.celularCliente.label() }}
-            {{ form.celularCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.celularCliente.label(class="titleInput") }}
+            {{ form.celularCliente(class="input") }}
             {% for error in form.celularCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.correoElectronicoCliente.label() }}
-            {{ form.correoElectronicoCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.correoElectronicoCliente.label(class="titleInput") }}
+            {{ form.correoElectronicoCliente(class="input") }}
             {% for error in form.correoElectronicoCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
 
-        <div class="form-group m-5">
-            {{ form.contraseñaCliente.label() }}
-            {{ form.contraseñaCliente(class="form-control") }}
+        <div class="divInput">
+            {{ form.contraseñaCliente.label(class="titleInput") }}
+            {{ form.contraseñaCliente(class="input") }}
             {% for error in form.contraseñaCliente.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
+    </form>
 
-        <div class="form-group m-5">
-            {{form.enviar(class="btn btn-success")}}
-        </div>
-        
-        <div class="form-group m-5">
-            <p>Al registrarte, aceptas nuestras condiciones de uso y politicas de privacidad</p>
-            <p>¿Ya tienes una cuenta? <a href="ingresoCliente">Ingreso Plataforma</a></p>
-        </div>
-    </form>    
+    <div class="divFooter">
+        {{form.enviar(class="btn")}}
+        <p>Al registrarte, aceptas nuestras condiciones de uso y politicas de privacidad</p>
+        <p>¿Ya tienes una cuenta? <a href="ingresoCliente">Ingreso Plataforma</a></p>
+    </div>
 </body>
+
 </html>
