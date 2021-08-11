@@ -86,17 +86,18 @@
   height: 50px;
   border-radius: 25px;
   margin: 1rem 0;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   outline: none;
-  border: none;
-  background-image: linear-gradient(to right, #2b3b4e, #2b3b4e, #2b3b4e);
-  color: #fff;
+  border: 2px solid #2b3b4e;
   text-transform: uppercase;
+  color: #2b3b4e;
   background-size: 200%;
+  transition: all 0.3s;
 }
 .container .logingContainer form .btn:hover {
   background-position: right;
-  background-image: linear-gradient(to right, #2b3b4e9b, #2b3b4e9b, #2b3b4e9b);
+  background: #2b3b4e;
+  color: white;
 }
 .container .logingContainer form .one {
   margin-top: 0px;

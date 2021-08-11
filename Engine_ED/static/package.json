@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "sass": "sass --watch ./styles/sass/index.scss ./styles/index.css",
-        "sass2": "sass --watch ./styles/sass/ingresoCliente.scss ./styles/ingresoCliente.css"
+        "sass2": "sass --watch ./styles/sass/ingresoCliente.scss ./styles/ingresoCliente.css",
+        "sass3": "sass --watch ./styles/sass/registroCliente.scss ./styles/registroCliente.css"
     },
     "repository": {
         "type": "git",
