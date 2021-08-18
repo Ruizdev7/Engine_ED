@@ -12,35 +12,110 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="../../static/styles/basePortalTransaccional.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE-transparent.png.png') }}">
     <title>Portal transaccional</title>
 </head>
 
 <body>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="">Inicio</a>
-                <a href="">Productos</a>
-                <a href="">Transferencias</a>
-                <a href="">Pagos</a>
-                <a href="">Seguridad</a>
-                <a href="">Documentos</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="principalDiv">
+        <div class="divHeader">
+            <img src="../../static/imgs/LogoSEDPE-transparent.png.png" alt="logo">
+            <!-- <h2>DETS</h2> -->
+            <h3>Sucursal virtual personas</h3>
+        </div>
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Dropdown link
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-    </li>
+        <div class="divIcons">
+            <span><a href="#"><i class="fas fa-sign-out-alt"></i></a>
+                <p class="salir">Salir</p>
+            </span>
+            <span><a href="#"><i class="fas fa-user-lock"></i></a>
+                <p class="seguridad">Seguridad</p>
+            </span>
+            <span><a href="#"><i class="fas fa-adjust"></i></a>
+                <p class="tema">Tema</p>
+            </span>
+            <span><a href="#"><i class="fas fa-phone-volume"></i></a>
+                <p class="contactanos">Contactanos</p>
+            </span>
+            <h2>joseph ruiz</h2>
+        </div>
+    </div>
+
+
+    <header>
+        <nav id="menu-h">
+            <ul class="Ul">
+                <li class="Pli">
+                    <a class="a-title" href="#">Inicio</a>
+                </li>
+
+                <li>
+                    <a class="a-title" href="#">Productos</a>
+                </li>
+                <li>
+                    <a class="a-title" href="#">Transferencias</a>
+
+                    <div class="divLi">
+                        <div>
+                            <h2>A depositos electronicos en la misma entidad</h2>
+                            <a href="#">Transferir</a>
+                            <a href="#">Inscribir depositos electronicos</a>
+                            <a href="#">Ver historico</a>
+                            <br>
+                            <h2>Programar transferencias</h2>
+                            <a href="#">Deposito electronico de tramite simplificado DETS </a>
+                            <a href="#">Deposito electronico transacional de tramite simplificado DETTS</a>
+                            <a href="#">Deposito electronico de tramite ordinario DETO</a>
+                            <a href="#">Deposito electronico transaccional de tramite ordinario DETTO</a>
+                            <a href="#">Deposito electronico para canalizar subsidios estatales DECSE</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="a-title" href="#">Pagos</a>
+                    <div class="divLi">
+                        <div>
+                            <h2>Facturas</h2>
+                            <a href="#">Consultar y Pagar</a>
+                            <a href="#">Inscribir facturas</a>
+                            <a href="#">Ver historico</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="a-title" href="#">Seguridad</a>
+
+                    <div class="divLi">
+                        <div>
+                            <h2>Contraseña de acceso</h2>
+                            <a href="#">Cambio de contraseña de acceso</a>
+                            <br>
+                            <h2>Alerta y Notificaciones</h2>
+                            <a href="#">Configurar alertas y Notificaciones</a>
+                            <br>
+                            <h2>Bloqueo de cuenta</h2>
+                            <a href="#">Bloqueo temporal de cuenta</a>
+                            <a href="#">Activacion de cuenta</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="a-title" href="#">Documentos</a>
+
+                    <div class="divLi">
+                        <div>
+                            <h2>Generar</h2>
+                            <a href="#">Extractos</a>
+                            <a href="#">Contrato legal deposito electronico</a>
+                        </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
 </body>
 
