@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+#menu-h {
+    min-height: 50px;
+    background: #232F3E;
+    margin: 0 auto;
+    height: 60px;
+
+    ul {
+        list-style: none;
+        display: flex;
+
+        li {
+            .a-title {
+                color: white;
+                display: block;
+                padding-right: 20px;
+                padding-left: 20px;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                font-size: 20px;
+                text-decoration: none;
+                // background: #232F3E;
+
+                &:hover {
+                    border-bottom: 3px solid #2b3b4e;
+                }
+            }
+
+            &:hover .divLi {
+                display: flex;
+            }
+
+            .divLi {
+                display: flex;
+                display: none;
+                position: absolute;
+                box-shadow: 0px 5px 8px 0px #000000;
+
+
+                div {
+                    padding: 20px;
+
+                    h2 {
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+
+                    a {
+                        font-size: 17px;
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: column;
+                        color: black;
+
+                        &:hover {
+                            text-decoration-line: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.principalDiv {
+    display: flex;
+    justify-content: space-between;
+
+    .divIcons {
+        display: block;
+        margin-top: 15px;
+
+        h2 {
+            font-size: 30px;
+            // float: right;
+            margin-left: 222px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+
+        span {
+            font-size: 25px;
+            margin-right: 60px;
+            float: right;
+
+            .salir {
+                font-size: 15px;
+                margin-left: -5px;
+            }
+
+            .seguridad {
+                font-size: 15px;
+                margin-left: -14px;
+            }
+
+            .contactanos {
+                font-size: 15px;
+                margin-left: -37px;
+            }
+
+            .tema {
+                font-size: 15px;
+                margin-left: -6px;
+            }
+
+            a {
+
+                i {
+                    color: #232F3E;
+
+                    &:hover {
+                        color: #232f3e71;
+                    }
+                }
+            }
+        }
+    }
+
+    .divHeader {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        flex-direction: column;
+        margin-left: 35px;
+
+        h2 {
+            margin-right: -100px;
+            color: #232F3E;
+        }
+
+        h3 {
+            font-weight: 400;
+            color: #232F3E;
+            margin-bottom: 15px;
+        }
+
+        img {
+            width: 70px;
+            height: 60px;
+            margin-bottom: 5px;
+        }
+    }
+}
