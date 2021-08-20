@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,22 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE-transparent.png.png') }}">
-    <title>Portal transaccional</title>
+    <title>{% block title %}{{ titulo }}{% endblock %}Portal Transaccional</title>
+    {% endblock %}
 </head>
 
 <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
 
     <div class="principalDiv">
         <div class="divHeader">
@@ -41,7 +54,7 @@
             <span><a href="#"><i class="fas fa-phone-volume"></i></a>
                 <p class="contactanos">Contactanos</p>
             </span>
-            <h2>joseph ruiz</h2>
+            <h2>Joseph Ruiz</h2>
         </div>
     </div>
 
@@ -116,7 +129,9 @@
             </ul>
         </nav>
     </header>
+    {% block content %}
 
+    {% endblock %}
 </body>
 
 </html>

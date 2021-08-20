@@ -16,7 +16,7 @@
         <img class="avatar" src="../static/imgs/icon/avatar_male.svg">
         <h2 style="text-align: center; margin-top: 30px;">REGISTRARSE</h2>
     </div>
-    <form action="/registroCliente" method="POST" enctype="multipart/form-data" class="divForm">
+    <form action="{{ url_for('registroCliente') }}" method="POST" enctype="multipart/form-data" class="divForm">
 
         {{ form.hidden_tag() }}
 
@@ -155,12 +155,16 @@
             <span>{{ error }}</span>
             {% endfor %}
         </div>
+
+        <div>
+            {{form.enviar(class="btn btn-success")}}
+        </div>
+
     </form>
 
     <div class="divFooter">
-        {{form.enviar(class="btn")}}
         <p>Al registrarte, aceptas nuestras condiciones de uso y politicas de privacidad</p>
-        <p>¿Ya tienes una cuenta? <a href="ingresoCliente">Ingreso Plataforma</a></p>
+        <p>¿Ya tienes una cuenta? <a href="{{ url_for('ingresoCliente') }}">Ingreso Plataforma</a></p>
     </div>
 </body>
 

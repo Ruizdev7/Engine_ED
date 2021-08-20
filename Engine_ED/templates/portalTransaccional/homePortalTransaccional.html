@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,9 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-    </script>
-    <title>Zona Transaccional</title>
+        </script>
+    <title>{% block title %}{{ titulo }}{% endblock %}</title>
+    {% endblock %}
 </head>
 
 <body>
@@ -30,16 +32,9 @@
 
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Productos
-        </a>
+            aria-expanded="false">Productos</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Deposito electronico de tramite simplificado DETS </a></li>
-            <li><a class="dropdown-item" href="#">Deposito electronico transacional de tramite simplificado DETTS</a>
-            </li>
-            <li><a class="dropdown-item" href="#">Deposito electronico de tramite ordinario DETO</a></li>
-            <li><a class="dropdown-item" href="#">Deposito electronico transaccional de tramite ordinario DETTO</a></li>
-            <li><a class="dropdown-item" href="#">Deposito electronico para canalizar subsidios estatales DECSE</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('productos') }}">Elige el producto de tu preferencia</a></li>
         </ul>
     </li>
 
@@ -66,7 +61,8 @@
     <br />
     <br />
     Estas en el portal transaccional
-    <p>PULSE ESTE ENLACE PARA CERRAR SESION <a href="cerrarSesion">ADIOS</a></p>
+    <p>PULSE ESTE ENLACE PARA CERRAR SESION <a href="{{ url_for('cerrarSesion') }}">ADIOS</a></p>
+    <div>{% block content %}{% endblock %}</div>
 </body>
 
 </html>

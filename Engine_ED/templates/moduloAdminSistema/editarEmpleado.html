@@ -19,11 +19,8 @@
 
             <div class="form-group m-5">
                 {{ form.numeroIdEmpleado.label() }}
-                {{ form.numeroIdEmpleado(value = "{{ empleado[2] }}", class="form-control")}}
-                <h6>{{ empleado[5] }}</h6>
-                {% for error in form.numeroIdEmpleado.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
+                {{ form.numeroIdEmpleado(class="form-control")}}
+                <h6>{{ empleado[2] }}</h6>
             </div>
 
             <div class="form-group m-5">

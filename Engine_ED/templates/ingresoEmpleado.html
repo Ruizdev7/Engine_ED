@@ -1,15 +1,69 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Ingreso Personas</title>
-        <link rel="stylesheet" href= "{{ url_for('static', filename='styles/normalize.css') }}">
-        <link rel="stylesheet" href= "{{ url_for('static', filename='styles/loginEmpleado.css') }}">
-        <link rel="shortcut icon" href= "{{ url_for('static', filename='imgs/LogoSEDPE.ico') }}">
-    </head>
+<html lang="en">
 
-    <body>
-        <a href="/">Volver</a>
-    </body>
- 
+<head>
+    <meta charset="UTF-8">
+    <title>Ingreso Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles/ingresoCliente.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE-transparent.png.png') }}">
+</head>
+
+<body>
+    <img class="ola" src="../static/imgs/icon/wave.png">
+    <div class="container">
+        <div class="img">
+            <img src="../static/imgs/icon/phone.svg">
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="logingContainer">
+            <form action="url_for('ingresoEmpleado')" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <img class="avatar" src="../static/imgs/icon/avatar_male.svg">
+                <h2>INICIAR SESION</h2>
+
+                <div class="inputDiv one">
+                    <div class="inputG">
+                        {{ form.correoElectronicoEmpleado.label(class="titleInput") }}
+                        {{ form.correoElectronicoEmpleado(class="input") }}
+                        {% for error in form.correoElectronicoEmpleado.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="inputDiv two">
+                    <div class="inputG">
+                        {{ form.contraseñaEmpleado.label(class="titleInput") }}
+                        {{ form.contraseñaEmpleado(class="input") }}
+                        {% for error in form.contraseñaEmpleado.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div>
+                    <BR></BR>
+                </div>
+
+                <div>
+                    {{form.enviar(class="btn")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
 </html>

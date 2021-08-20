@@ -27,16 +27,13 @@
         <div class="cont-menu activate" id="menu">
             <ul class="flexUl">
                 <li>
-                    <a href="#">Inicio</a>
+                    <a href="{{ url_for('index') }}">Inicio</a>
                 </li>
                 <li>
-                    <a href="#">Productos</a>
+                    <a href="{{ url_for('ingresoEmpleado') }}">Empleados</a>
                 </li>
                 <li>
-                    <a href="./ingresoEmpleado">Empleados</a>
-                </li>
-                <li>
-                    <a href="./ingresoCliente">Ingreso personas</a>
+                    <a href="{{ url_for('ingresoCliente') }}">Ingreso personas</a>
                 </li>
             </ul>
         </div>
