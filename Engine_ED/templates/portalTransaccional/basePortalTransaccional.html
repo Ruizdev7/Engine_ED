@@ -12,12 +12,12 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-    </script>
+        </script>
     <link rel="stylesheet" href="../../static/styles/basePortalTransaccional.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LogoSEDPE-transparent.png.png') }}">
-    <title>{% block title %}{{ titulo }}{% endblock %}Portal Transaccional</title>
+    <title>{% block title %}{{ titulo }}{% endblock %}</title>
     {% endblock %}
 </head>
 
@@ -42,7 +42,7 @@
         </div>
 
         <div class="divIcons">
-            <span><a href="#"><i class="fas fa-sign-out-alt"></i></a>
+            <span><a href="{{ url_for('cerrarSesion') }}"><i class="fas fa-sign-out-alt"></i></a>
                 <p class="salir">Salir</p>
             </span>
             <span><a href="#"><i class="fas fa-user-lock"></i></a>
@@ -54,7 +54,7 @@
             <span><a href="#"><i class="fas fa-phone-volume"></i></a>
                 <p class="contactanos">Contactanos</p>
             </span>
-            <h2>Joseph Ruiz</h2>
+            <h2>Username</h2>
         </div>
     </div>
 
@@ -63,11 +63,11 @@
         <nav id="menu-h">
             <ul class="Ul">
                 <li class="Pli">
-                    <a class="a-title" href="#">Inicio</a>
+                    <a class="a-title" href="{{ url_for('portalTransaccional') }}">Inicio</a>
                 </li>
 
                 <li>
-                    <a class="a-title" href="#">Productos</a>
+                    <a class="a-title" href="{{ url_for('productos') }}">Productos</a>
                 </li>
                 <li>
                     <a class="a-title" href="#">Transferencias</a>

@@ -46,44 +46,46 @@ def registroCliente():
         email = request.form['correoElectronicoCliente']
         contraseña = generate_password_hash(request.form['contraseñaCliente'])
 
+        mydb.connect()
         mycursor = mydb.cursor()
         sql = """insert into `Engine_DB`.`tblCliente` (
-        `ccnCliente`,
-        `numeroIdCliente`,
-        `tipoId`,
-        `fechaExpIdCliente`,
-        `lugarExpIdCliente`,
-        `primerNombreCliente`,
-        `segundoNombreCliente`,
-        `primerApellidoCliente`,
-        `segundoApellidoCliente`,
-        `fechaNacimientoCliente`,
-        `direccionCliente`,
-        `barrioCliente`,
-        `idPais`,
-        `idDepartamento`,
-        `idMunicipio`,
-        `celularCliente`,
-        `correoElectronicoCliente`,
-        `contraseñaCliente`) values (null, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
+            `ccnCliente`,
+            `numeroIdCliente`,
+            `tipoId`,
+            `fechaExpIdCliente`,
+            `lugarExpIdCliente`,
+            `primerNombreCliente`,
+            `segundoNombreCliente`,
+            `primerApellidoCliente`,
+            `segundoApellidoCliente`,
+            `fechaNacimientoCliente`,
+            `direccionCliente`,
+            `barrioCliente`,
+            `idPais`,
+            `idDepartamento`,
+            `idMunicipio`,
+            `celularCliente`,
+            `correoElectronicoCliente`,
+            `contraseñaCliente`) values (null, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
 
-        datos = (numeroidentificacion,
-                 tipoIdentificacion,
-                 fechaExpedicionIdentificacion,
-                 lugarExpedicionIdentificacion,
-                 primerNombre,
-                 segundoNombre,
-                 primerApellido,
-                 segundoApellido,
-                 fechaNacimiento,
-                 direccionResidencia,
-                 barrioResidencia,
-                 paisResidencia,
-                 departamentoResidencia,
-                 municipioResidencia,
-                 celular,
-                 email,
-                 contraseña)
+        datos = (
+            numeroidentificacion,
+            tipoIdentificacion,
+            fechaExpedicionIdentificacion,
+            lugarExpedicionIdentificacion,
+            primerNombre,
+            segundoNombre,
+            primerApellido,
+            segundoApellido,
+            fechaNacimiento,
+            direccionResidencia,
+            barrioResidencia,
+            paisResidencia,
+            departamentoResidencia,
+            municipioResidencia,
+            celular,
+            email,
+            contraseña)
 
         mycursor.execute(sql, datos)
         mydb.commit()
@@ -100,6 +102,7 @@ def ingresoCliente():
     else:
         email = request.form['correoElectronicoCliente']
         contraseña = request.form['contraseñaCliente']
+        mydb.connect()
         mycursor = mydb.cursor()
         sql = "select ccnCliente, primerNombreCliente, PrimerApellidoCliente, correoElectronicoCliente, contraseñaCliente from `Engine_DB`.`tblCliente` where correoElectronicoCliente = %s"
         val = (request.form['correoElectronicoCliente'],)
@@ -139,49 +142,85 @@ def cerrarSesion():
 @app.route('/portalTransaccional/productos', methods=['GET', 'POST'])
 def productos():
     titulo = "Productos"
+    mydb.connect()
+    mycursor = mydb.cursor()
+    sql = "select ccnCliente, celularCliente from `Engine_DB`.`tblCliente` where ccnCliente = %s"
+    val = (session['idCliente'],)
+    mycursor.execute(sql, val)
+    cliente = mycursor.fetchone()
+    print(cliente)
+    mydb.close()
     if 'username' and 'idCliente' in session:
-        return render_template('portalTransaccional/productos.html', titulo=titulo)
+        return render_template('portalTransaccional/productos.html', titulo=titulo, cliente=cliente)
     else:
         mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
         flash(mensajeErrorSesion)
         return redirect(url_for('ingresoCliente'))
 
 
-@app.route('/portalTransaccional/productos/dets', methods=['GET', 'POST'])
-def productosDets():
-    titulo = "Productos DETS"
+@app.route('/portalTransaccional/eleccionProducto', methods=['GET', 'POST'])
+def eleccionProducto():
     if 'username' and 'idCliente' in session:
-        
-        """cuentaContable = 21300501
-        claseTasa = "V"
-        tasaInt = 0.01
-        tDeposito = "Dets"
-        
-        mycursor = mydb.cursor()
-        sql = """"""insert into `Engine_DB`.`tblDepositoElectronico` (
-        `depositoElectronico`,
-        `codigoCuenta`,
-        `ccnCliente`,
-        `cuantiaMaxDeposito`,
-        `claseTasaInteres`,
-        `tasaInteres`,
-        `frecLiqIntereses`,
-        `fechaTerminacion`,
-        `tipoDeposito`,
-        `retencionGmf`,
-        `fechaExencGmf`,
-        `saldoDeposito`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
+        print(request.method)
+        if request.method == 'POST':
+            depositoElectronico = request.form['depositoElectronico']
+            codigoCuenta = request.form['codigoCuenta']
+            ccnCliente = request.form['ccnCliente']
+            cuantiaMaxDeposito = request.form['cuantiaMaxDeposito']
+            claseTasaInteres = request.form['claseTasaInteres']
+            tasaInteres = request.form['tasaInteres']
+            frecLiqIntereses = request.form['frecLiqIntereses']
+            tipoDeposito = request.form['tipoDeposito']
+            saldoDeposito = 0
 
-        """val = (,cuentaContable,val,claseTasa,tasaInt,tDeposito)
+            print(depositoElectronico, codigoCuenta, ccnCliente, cuantiaMaxDeposito, claseTasaInteres, tasaInteres, frecLiqIntereses, tipoDeposito)
+            mydb.connect()
+            mycursor = mydb.cursor()
+            sql = """insert into `Engine_DB`.`tblDepositoElectronico`(
+                `depositoElectronico`,
+                `codigoCuenta`,
+                `ccnCliente`,
+                `cuantiaMaxDeposito`,
+                `claseTasaInteres`,
+                `tasaInteres`,
+                `frecLiqIntereses`,
+                `tipoDeposito`,
+                `saldoDeposito`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) on duplicate key update
+                `depositoElectronico` = %s,
+                `codigoCuenta` = %s,
+                `ccnCliente` = %s,
+                `cuantiaMaxDeposito` = %s,
+                `claseTasaInteres` = %s,
+                `tasaInteres` = %s,
+                `frecLiqIntereses` = %s,
+                `tipoDeposito` = %s,
+                `saldoDeposito` = %s;"""
 
-        mycursor.execute(sql2, val2)
-        mydb.commit()
-        mydb.close()"""
-        return redirect(url_for('portalTransaccional'))
-    else:
-        mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
-        flash(mensajeErrorSesion)
-        return redirect(url_for('ingresoCliente'))
+            datos = (
+                depositoElectronico,
+                codigoCuenta,
+                ccnCliente,
+                cuantiaMaxDeposito,
+                claseTasaInteres,
+                tasaInteres,
+                frecLiqIntereses,
+                tipoDeposito,
+                saldoDeposito,
+                depositoElectronico,
+                codigoCuenta,
+                ccnCliente,
+                cuantiaMaxDeposito,
+                claseTasaInteres,
+                tasaInteres,
+                frecLiqIntereses,
+                tipoDeposito,
+                saldoDeposito)
+            mycursor.execute(sql, datos)
+            mydb.commit()
+            print(mycursor.rowcount, "record(s) affected")
+
+            return redirect(url_for('portalTransaccional'))
+
 
 @app.route('/ingresoEmpleado', methods=['GET', 'POST'])
 def ingresoEmpleado():
@@ -191,6 +230,7 @@ def ingresoEmpleado():
     else:
         email = request.form['correoElectronicoEmpleado']
         contraseña = request.form['contraseñaEmpleado']
+        mydb.connect()
         mycursor = mydb.cursor()
         sql = "select ccnEmpleado, primerNombreEmpleado, PrimerApellidoEmpleado, correoElectronicoEmpleado, contraseñaEmpleado from `Engine_DB`.`tblEmpleado` where correoElectronicoEmpleado = %s"
         val = (request.form['correoElectronicoEmpleado'],)
@@ -201,7 +241,8 @@ def ingresoEmpleado():
             mensajeExito = 'Bienvenido {}'.format(
                 resultado[1] + ' ' + resultado[2])
             flash(mensajeExito)
-            return redirect(url_for('portalTransaccional'))#pendiente establecer metodos para asignacion de dashboard
+            # pendiente establecer metodos para asignacion de dashboard
+            return redirect(url_for('portalTransaccional'))
         else:
             mensajeError = 'Email o Contraseña incorrecta porfavor intente de nuevo'
             flash(mensajeError)
@@ -210,6 +251,7 @@ def ingresoEmpleado():
 
 @app.route('/dbEmpleados')
 def dbEmpleados():
+    mydb.connect()
     mycursor = mydb.cursor()
     mycursor.execute("select * from `Engine_DB`.`tblEmpleado`;")
     listaEmpleados = mycursor.fetchall()
@@ -221,7 +263,6 @@ def registrarEmpleado():
     form = forms.registrarEmpleado(request.form)
     if request.method == 'GET':
         return render_template('moduloAdminSistema/registrarEmpleado.html', form=form)
-
     else:
         numeroidentificacion = request.form['numeroIdEmpleado']
         tipoIdentificacion = request.form['tipoId']
@@ -240,6 +281,7 @@ def registrarEmpleado():
         celular = request.form['celularEmpleado']
         email = request.form['correoElectronicoEmpleado']
 
+        mydb.connect()
         mycursor = mydb.cursor()
         sql = """insert into `Engine_DB`.`tblEmpleado` (
         `ccnEmpleado`,
@@ -286,6 +328,7 @@ def registrarEmpleado():
 @app.route('/editarEmpleado/<int:ccnEmpleado>')
 def editarEmpleado(ccnEmpleado):
     form = forms.editarEmpleado(request.form)
+    mydb.connect()
     mycursor = mydb.cursor()
     mycursor.execute(
         "select * from `Engine_DB`.`tblEmpleado` where ccnEmpleado = %s", (ccnEmpleado,))
@@ -296,6 +339,7 @@ def editarEmpleado(ccnEmpleado):
 
 @app.route('/eliminarEmpleado/<int:ccnEmpleado>')
 def eliminarEmpleado(ccnEmpleado):
+    mydb.connect()
     mycursor = mydb.cursor()
     mycursor.execute(
         "delete from `Engine_DB`.`tblEmpleado` where ccnEmpleado = %s", (ccnEmpleado,))
