@@ -7,7 +7,8 @@
         "sass": "sass --watch ./styles/sass/index.scss ./styles/index.css",
         "sass2": "sass --watch ./styles/sass/ingresoCliente.scss ./styles/ingresoCliente.css",
         "sass3": "sass --watch ./styles/sass/registroCliente.scss ./styles/registroCliente.css",
-        "sass4": "sass --watch ./styles/sass/basePortalTransaccional.scss ./styles/basePortalTransaccional.css"
+        "sass4": "sass --watch ./styles/sass/basePortalTransaccional.scss ./styles/basePortalTransaccional.css",
+        "sass5": "sass --watch ./styles/sass/basePortalAdminSistema.scss ./styles/basePortalAdminSistema.css"
     },
     "repository": {
         "type": "git",

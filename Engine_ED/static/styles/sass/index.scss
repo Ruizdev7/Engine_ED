@@ -38,16 +38,18 @@ $color-navegador: #232F3E;
 
         .icon-menu {
             #logo {
-                width: 50px;
-                height: 50px;
+                width: 46px;
+                height: 48px;
                 transition: 0.5s;
+                margin-top: -1px;
+                padding-top: 5px;
             }
         }
 
         .activate {
             ul {
                 li {
-                    margin-top: -44px;
+                    margin-top: -40px;
                     transition: 0.2s;
 
                     a {
@@ -78,6 +80,8 @@ $color-navegador: #232F3E;
             #logo {
                 width: 70px;
                 height: auto;
+                margin-top: 10px;
+                margin-left: 10px;
                 height: 70px;
                 transition: 0.2s;
             }
