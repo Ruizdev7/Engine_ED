@@ -454,9 +454,9 @@ def eliminarEmpleado(ccnEmpleado):
     return redirect(url_for('dbEmpleados'))
 
 
-@app.route('/basePortalTransaccional')
+@app.route('/basePortalAdminSistema')
 def base():
-    return render_template('portalTransaccional/basePortalTransaccional.html')
+    return render_template('moduloAdminSistema/basePortalAdminSistema.html')
 
 
 if __name__ == '__main__':

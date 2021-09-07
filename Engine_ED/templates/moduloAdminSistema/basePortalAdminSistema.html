@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/styles/basePortalAdminSistema.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/logo_transparent.png') }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>dashboard</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <img src="../../static/imgs/logo_transparent.png" alt="">
+            <!-- <span class="logo-name">nombre</span> -->
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li class="">
+                <a href="#">
+                    <i class="fas fa-home"></i>
+                    <span class="link_name">Inicio</span>
+                </a>
+            </li>
+            <li class="">
+                <div class="icon_links">
+                    <a href="#">
+                        <i class="fas fa-address-book iconos"></i>
+                        <span class="link_name">Datos empleados</span>
+                    </a>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">Crear un nuevo empleado</a></li>
+                    <li><a href="#">Editar un empleado</a></li>
+                    <li><a href="#">Retirar un empleado</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <div class="icon_links">
+                    <a href="#">
+                        <i class="fas fa-folder-plus iconos"></i>
+                        <span class="link_name">Gestion de acceso</span>
+                    </a>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">Roles y privilegios</a></li>
+                    <li><a href="#">Usuarios y contraseña</a></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <div class="icon_links">
+                    <a href="#">
+                        <i class="fas fa-clipboard iconos"></i>
+                        <span class="link_name">Reportes empleados</span>
+                    </a>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">Datos principales</a></li>
+                    <li><a href="#">Datos de ubicacion</a></li>
+                    <li><a href="#">Cumpleaños por mes</a></li>
+                    <li><a href="#">Empleados activos</a></li>
+                    <li><a href="#">Empleados inactivos</a></li>
+                    <li><a href="#">Roles y privilegios</a></li>
+                </ul>
+            </li>
+            <li class="pointer">
+                <div class="profile-datails">
+                    <div class="profile-content">
+                        <img src="../../static/imgs/perfilDash.jpg" alt="perfil">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile-name">Jadso</div>
+                        <div class="job">Administrador</div>
+                    </div>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <span class="text">Drop down sidebar</span>
+        </div>
+    </section>
+
+    <script src="../../static/js/admin.js"></script>
+</body>
+
+</html>
