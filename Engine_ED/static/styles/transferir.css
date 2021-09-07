@@ -1,0 +1,13 @@
+.divForm{
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    height: 400px;
+    width: 400px;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

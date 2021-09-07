@@ -54,7 +54,6 @@
             <span><a href="#"><i class="fas fa-phone-volume"></i></a>
                 <p class="contactanos">Contactanos</p>
             </span>
-            <h2>Username</h2>
         </div>
     </div>
 
@@ -75,8 +74,8 @@
                     <div class="divLi">
                         <div>
                             <h2>A depositos electronicos en la misma entidad</h2>
-                            <a href="#">Transferir</a>
-                            <a href="#">Inscribir depositos electronicos</a>
+                            <a href="{{ url_for('transferir') }}">Transferir</a>
+                            <a href="{{ url_for('inscribirDepositosElectronicos') }}">Inscribir depositos electronicos</a>
                             <a href="#">Ver historico</a>
                             <br>
                             <h2>Programar transferencias</h2>
@@ -118,14 +117,15 @@
                 </li>
                 <li>
                     <a class="a-title" href="#">Documentos</a>
-
                     <div class="divLi">
                         <div>
                             <h2>Generar</h2>
                             <a href="#">Extractos</a>
                             <a href="#">Contrato legal deposito electronico</a>
                         </div>
+                    </div>
                 </li>
+                <h4 style="margin: auto; color: #FFFFFF;">{% block user %}{{ usuario }}{% endblock %}</h4>
             </ul>
         </nav>
     </header>

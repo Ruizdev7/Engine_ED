@@ -22,7 +22,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/registroCliente', methods=['GET', 'POST'])
+@app.route('/registroCliente', methods=['GET','POST'])
 def registroCliente():
     form = forms.registroCliente(request.form)
     if request.method == 'GET':
@@ -94,7 +94,7 @@ def registroCliente():
         return redirect(url_for('ingresoCliente'))
 
 
-@app.route('/ingresoCliente', methods=['GET', 'POST'])
+@app.route('/ingresoCliente', methods=['GET','POST'])
 def ingresoCliente():
     form = forms.ingresoCliente(request.form)
     if request.method == 'GET':
@@ -121,25 +121,26 @@ def ingresoCliente():
             return redirect(url_for('ingresoCliente'))
 
 
-@app.route('/portalTransaccional', methods=['GET', 'POST'])
+@app.route('/portalTransaccional', methods=['GET','POST'])
 def portalTransaccional():
     titulo = "Zona Transaccional"
     if 'username' and 'idCliente' in session:
-        return render_template('portalTransaccional/homePortalTransaccional.html', titulo=titulo)
+        usuario = session['username']
+        return render_template('portalTransaccional/homePortalTransaccional.html', titulo=titulo, usuario=usuario)
     else:
         mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
         flash(mensajeErrorSesion)
         return redirect(url_for('ingresoCliente'))
 
 
-@app.route('/cerrarSesion', methods=['GET', 'POST'])
+@app.route('/cerrarSesion', methods=['GET','POST'])
 def cerrarSesion():
     session.pop('username')
     session.pop('idCliente')
     return redirect(url_for('index'))
 
 
-@app.route('/portalTransaccional/productos', methods=['GET', 'POST'])
+@app.route('/portalTransaccional/productos', methods=['GET','POST'])
 def productos():
     titulo = "Productos"
     mydb.connect()
@@ -151,14 +152,15 @@ def productos():
     print(cliente)
     mydb.close()
     if 'username' and 'idCliente' in session:
-        return render_template('portalTransaccional/productos.html', titulo=titulo, cliente=cliente)
+        usuario = session['username']
+        return render_template('portalTransaccional/productos.html', titulo=titulo, cliente=cliente, usuario=usuario)
     else:
         mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
         flash(mensajeErrorSesion)
         return redirect(url_for('ingresoCliente'))
 
 
-@app.route('/portalTransaccional/eleccionProducto', methods=['GET', 'POST'])
+@app.route('/portalTransaccional/eleccionProducto', methods=['GET','POST'])
 def eleccionProducto():
     if 'username' and 'idCliente' in session:
         print(request.method)
@@ -222,7 +224,112 @@ def eleccionProducto():
             return redirect(url_for('portalTransaccional'))
 
 
-@app.route('/ingresoEmpleado', methods=['GET', 'POST'])
+@app.route('/portalTransaccional/inscribirDepositosElectronicos', methods=['GET','POST'])
+def inscribirDepositosElectronicos():
+    titulo = "Inscripcion Depositos"
+    form = forms.inscribirDepositos(request.form)
+    if 'username' and 'idCliente' in session:
+        usuario = session['username']
+        if request.method == 'GET':
+            return render_template('portalTransaccional/inscribirDepositosElectronicos.html', titulo=titulo, form=form, usuario=usuario)
+        else:
+            filtroLista = session['username']
+            tipoDeposito = request.form['tipoDeposito']
+            depositoElectronico = request.form['depositoElectronico']
+            nombrePersonalizado = request.form['nombrePersonalizado']
+            tipoId = request.form['tipoId']
+            numeroIdCliente = request.form['numeroIdCliente']
+
+
+            print(filtroLista, tipoDeposito, depositoElectronico, nombrePersonalizado, tipoId, numeroIdCliente)
+
+            mydb.connect()
+            mycursor = mydb.cursor()
+            sql = """insert into `Engine_DB`.`tblDepositosInscritos`(
+                `ccnDepositosInscritos`,
+                `filtroLista`,
+                `tipoDeposito`,
+                `depositoElectronico`,
+                `nombrePersonalizado`,
+                `tipoId`,
+                `numeroIdCliente`) VALUES (null, %s, %s, %s, %s, %s, %s);"""
+
+            datos = (
+                filtroLista,
+                tipoDeposito,
+                depositoElectronico,
+                nombrePersonalizado,
+                tipoId,
+                numeroIdCliente)
+                
+            mycursor.execute(sql, datos)
+            mydb.commit()
+            print(mycursor.rowcount, "record(s) affected")
+
+            return redirect(url_for('portalTransaccional'))
+    else:
+        mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
+        flash(mensajeErrorSesion)
+        return redirect(url_for('ingresoCliente'))
+
+
+@app.route('/portalTransaccional/transferir', methods=['GET','POST'])
+def transferir():
+    titulo = "Realizar Transferencia"
+    form = forms.transferir(request.form)
+    if 'username' and 'idCliente' in session:
+        usuario = session['username']
+        if request.method == 'GET':
+            mydb.connect()
+            mycursor = mydb.cursor()
+            sql = "select celularCliente from `Engine_DB`.`tblCliente` where ccnCliente = %s"
+            val = (session['idCliente'],)
+            mycursor.execute(sql, val)
+            deposito = mycursor.fetchone()
+            print(deposito)
+            mydb.close()
+            return render_template('portalTransaccional/transferir.html', titulo=titulo, form=form, deposito=deposito, usuario=usuario)
+        else:
+            filtroLista = session['username']
+            tipoDeposito = request.form['tipoDeposito']
+            depositoElectronico = request.form['depositoElectronico']
+            nombrePersonalizado = request.form['nombrePersonalizado']
+            tipoId = request.form['tipoId']
+            numeroIdCliente = request.form['numeroIdCliente']
+
+            print(filtroLista, tipoDeposito, depositoElectronico, nombrePersonalizado, tipoId, numeroIdCliente)
+
+            mydb.connect()
+            mycursor = mydb.cursor()
+            sql = """insert into `Engine_DB`.`tblDepositosInscritos`(
+                `ccnDepositosInscritos`,
+                `filtroLista`,
+                `tipoDeposito`,
+                `depositoElectronico`,
+                `nombrePersonalizado`,
+                `tipoId`,
+                `numeroIdCliente`) VALUES (null, %s, %s, %s, %s, %s, %s);"""
+
+            datos = (
+                filtroLista,
+                tipoDeposito,
+                depositoElectronico,
+                nombrePersonalizado,
+                tipoId,
+                numeroIdCliente)
+                
+            mycursor.execute(sql, datos)
+            mydb.commit()
+            print(mycursor.rowcount, "record(s) affected")
+
+            return redirect(url_for('portalTransaccional'))
+    else:
+        mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
+        flash(mensajeErrorSesion)
+        return redirect(url_for('ingresoCliente'))
+
+
+@app.route('/ingresoEmpleado', methods=['GET','POST'])
 def ingresoEmpleado():
     form = forms.ingresoEmpleado(request.form)
     if request.method == 'GET':
@@ -258,7 +365,7 @@ def dbEmpleados():
     return render_template('moduloAdminSistema/dbEmpleados.html', listaEmpleados=listaEmpleados)
 
 
-@app.route('/registrarEmpleado', methods=['GET', 'POST'])
+@app.route('/registrarEmpleado', methods=['GET','POST'])
 def registrarEmpleado():
     form = forms.registrarEmpleado(request.form)
     if request.method == 'GET':

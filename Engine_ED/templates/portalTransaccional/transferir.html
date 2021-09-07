@@ -1,0 +1,56 @@
+{% extends "portalTransaccional/basePortalTransaccional.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/transferir.css') }}">
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Hola desde Transferencias</h1>
+
+<div class="contenedor">
+    
+    <form action="{{ url_for('inscribirDepositosElectronicos') }}" method="POST" enctype="multipart/form-data" class="divForm">
+
+        {{ form.hidden_tag() }}
+    
+        <div>
+            <label class="form-label" for="depositoElectronico">Deposito de Origen</label>
+            <input class="form-control form-control-sm" type="number" name="depositoOrigen"
+                id="depositoOrigen" value="{{ deposito[0] }}" readonly>
+        </div>
+        <br>
+        <div>
+            {{ form.productoDestino.label() }}
+            {{ form.productoDestino(class="form-control form-control-sm") }}
+            {% for error in form.productoDestino.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ form.valorATransferir.label() }}
+            {{ form.valorATransferir(class="form-control form-control-sm") }}
+            {% for error in form.valorATransferir.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ form.tipoTransferencia.label() }}
+            {{ form.tipoTransferencia(class="form-control form-control-sm") }}
+            {% for error in form.tipoTransferencia.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ form.transferir(class="btn btn-success") }}
+        </div>
+    
+    </form>
+    
+</div>
+
+{% endblock %}

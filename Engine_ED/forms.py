@@ -7725,3 +7725,48 @@ class editarEmpleado(FlaskForm):
         Email()
     ])
     enviar = SubmitField("Enviar")
+
+
+class inscribirDepositos(FlaskForm):
+    tipoDeposito = SelectField('Tipo Deposito Electronico', choices=[
+    ('DETS','Deposito Electronico De Tramite Simplificado'),
+    ('DECSE','Deposito Electronico Para Canalizar Subsidios Estatales'),
+    ('DETO','Deposito Electronico De Tramite Ordinario'),
+    ('DETTS','Deposito Electronico Transaccional De Tramite Simplificado'),
+    ('TI','Deposito Electronico Transaccional De Tramite Ordinario')], validators=[
+        Required(message='El campo es obligatorio'),
+    ])
+    depositoElectronico = IntegerField('Deposito Electronico Numero', validators=[
+        Required(message='El campo es obligatorio')
+    ])
+    nombrePersonalizado = StringField('Nombre Personalizado', validators=[
+        Required(message='El campo es obligatorio')
+    ])
+    tipoId = SelectField('Tipo Identificacion', choices=[
+    ('CC','Cedula de Ciudadania'),
+    ('CE','Cedula de Extrangeria'),
+    ('PA','Pasaporte'),
+    ('RC','Registro Civil'),
+    ('TI','Tarjeta de Identidad')], validators=[
+        Required(message='El campo es obligatorio'),
+    ])
+    numeroIdCliente = IntegerField('Numero Identificacion', validators=[
+        Required(message='El campo es obligatorio'),
+        Length(max=10, min=6, message='El campo debe tener entre 6 y 10 caracteres')
+        ])
+    inscribirDeposito = SubmitField("Inscribir Deposito")
+
+
+class transferir(FlaskForm):
+    productoDestino = IntegerField('Deposito de Destino', validators=[
+        Required(message='El campo es obligatorio')
+    ])
+    valorATransferir = IntegerField('Valor a Transferir', validators=[
+        Required(message='El campos es obligatorio')
+    ])
+    tipoTransferencia = SelectField('Tipo de Transferencia', choices=[
+        ('TL','Transferencia en linea'),
+        ('TS','Transferencia de Subsidio')], validators=[
+            Required(message='El campo es obligatorio'),
+        ])
+    transferir = SubmitField("Realizar Transferencia")
