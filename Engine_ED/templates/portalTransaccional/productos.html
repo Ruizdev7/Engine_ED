@@ -1,7 +1,7 @@
 {% extends "portalTransaccional/basePortalTransaccional.html" %}
 {% block title %}{{ titulo }}{% endblock %}
 {% block head %}
-<link rel="stylesheet" href="../../static/styles/productos.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/productos.css') }}">
 {{ super() }}
 {% endblock %}
 
@@ -16,9 +16,10 @@
                 </div>
                 <div class="card-body prueba">
                     <h5 class="card-title">Deposito Electronico de Tramite Simplificado</h5>
-                    <p class="card-text">Acceda a serficios financieros de una manera agil libre de barreras relacionados con tramites engorrosos.</p>
-                    <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                        data-bs-target="#Dets">
+                    <p class="card-text">Acceda a serficios financieros de una manera agil libre de barreras
+                        relacionados con tramites engorrosos.</p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#Dets">
                         Mas Informacion
                     </button>
                 </div>
@@ -34,65 +35,61 @@
                                 aria-label="Cerrar"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud
-                                exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit
-                                in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat
-                                non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-                                adipiscing
-                                elit,
-                                sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <a href="{{ url_for('productosDets') }}" class="btn btn-success">Seleccionar</a>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad adipisci dolor quidem atque
+                                veniam. Ut ipsa at, nesciunt dolore doloribus veniam aliquam cumque iste, amet expedita
+                                consequuntur dolorem consectetur dolor!</p>
+                            <form action="/portalTransaccional/eleccionProducto" method="POST"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                                <div class="mb-3">
+                                    <label class="form-label" for="depositoElectronico">Numero de Cuenta</label>
+                                    <input class="form-control form-control-sm" type="number" name="depositoElectronico"
+                                        id="depositoElectronico" value="{{ cliente[1] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="codigoCuenta">Cuenta Contable</label>
+                                    <input class="form-control form-control-sm" type="number" name="codigoCuenta"
+                                        id="codigoCuenta" value="21300501" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="ccnCliente">Codigo Cliente</label>
+                                    <input class="form-control form-control-sm" type="number" name="ccnCliente"
+                                        id="ccnCliente" value="{{ cliente[0] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="cuantiaMaxDeposito">Valor Maximo Movimiento
+                                        Mensual</label>
+                                    <input class="form-control form-control-sm" type="number" name="cuantiaMaxDeposito"
+                                        id="cuantiaMaxDeposito" value="2725578" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="claseTasaInteres">Clase Tasa Liquidacion</label>
+                                    <input class="form-control form-control-sm" type="text" name="claseTasaInteres"
+                                        id="claseTasaInteres" value="V" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tasaInteres">Tasa Interes Reconocida</label>
+                                    <input class="form-control form-control-sm" type="number" name="tasaInteres"
+                                        id="tasaInteres" value="0.01" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="frecLiqIntereses">Frecuencia Liquidacion
+                                        Interes</label>
+                                    <input class="form-control form-control-sm" type="text" name="frecLiqIntereses"
+                                        id="frecLiqIntereses" value="M" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tipoDeposito">Tipo Producto</label>
+                                    <input class="form-control form-control-sm" type="text" name="tipoDeposito"
+                                        id="tipoDeposito" value="DETS" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-success"
+                                        value="Seleccionar DETS">Seleccionar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -125,65 +122,61 @@
                                 aria-label="Cerrar"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud
-                                exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit
-                                in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat
-                                non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-                                adipiscing
-                                elit,
-                                sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Seleccionar</button>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad adipisci dolor quidem atque
+                                veniam. Ut ipsa at, nesciunt dolore doloribus veniam aliquam cumque iste, amet expedita
+                                consequuntur dolorem consectetur dolor!</p>
+                            <form action="/portalTransaccional/eleccionProducto" method="POST"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                                <div class="mb-3">
+                                    <label class="form-label" for="depositoElectronico">Numero de Cuenta</label>
+                                    <input class="form-control form-control-sm" type="number" name="depositoElectronico"
+                                        id="depositoElectronico" value="{{ cliente[1] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="codigoCuenta">Cuenta Contable</label>
+                                    <input class="form-control form-control-sm" type="number" name="codigoCuenta"
+                                        id="codigoCuenta" value="21300502" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="ccnCliente">Codigo Cliente</label>
+                                    <input class="form-control form-control-sm" type="number" name="ccnCliente"
+                                        id="ccnCliente" value="{{ cliente[0] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="cuantiaMaxDeposito">Valor Maximo Movimiento
+                                        Mensual</label>
+                                    <input class="form-control form-control-sm" type="number" name="cuantiaMaxDeposito"
+                                        id="cuantiaMaxDeposito" value="2725578" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="claseTasaInteres">Clase Tasa Liquidacion</label>
+                                    <input class="form-control form-control-sm" type="text" name="claseTasaInteres"
+                                        id="claseTasaInteres" value="V" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tasaInteres">Tasa Interes Reconocida</label>
+                                    <input class="form-control form-control-sm" type="number" name="tasaInteres"
+                                        id="tasaInteres" value="0.02" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="frecLiqIntereses">Frecuencia Liquidacion
+                                        Interes</label>
+                                    <input class="form-control form-control-sm" type="text" name="frecLiqIntereses"
+                                        id="frecLiqIntereses" value="M" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tipoDeposito">Tipo Producto</label>
+                                    <input class="form-control form-control-sm" type="text" name="tipoDeposito"
+                                        id="tipoDeposito" value="DECSE" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-success"
+                                        value="Seleccionar DETS">Seleccionar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -217,65 +210,61 @@
                                 aria-label="Cerrar"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud
-                                exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit
-                                in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat
-                                non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-                                adipiscing
-                                elit,
-                                sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Seleccionar</button>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad adipisci dolor quidem atque
+                                veniam. Ut ipsa at, nesciunt dolore doloribus veniam aliquam cumque iste, amet expedita
+                                consequuntur dolorem consectetur dolor!</p>
+                            <form action="/portalTransaccional/eleccionProducto" method="POST"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                                <div class="mb-3">
+                                    <label class="form-label" for="depositoElectronico">Numero de Cuenta</label>
+                                    <input class="form-control form-control-sm" type="number" name="depositoElectronico"
+                                        id="depositoElectronico" value="{{ cliente[1] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="codigoCuenta">Cuenta Contable</label>
+                                    <input class="form-control form-control-sm" type="number" name="codigoCuenta"
+                                        id="codigoCuenta" value="21300503" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="ccnCliente">Codigo Cliente</label>
+                                    <input class="form-control form-control-sm" type="number" name="ccnCliente"
+                                        id="ccnCliente" value="{{ cliente[0] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="cuantiaMaxDeposito">Valor Maximo Movimiento
+                                        Mensual</label>
+                                    <input class="form-control form-control-sm" type="number" name="cuantiaMaxDeposito"
+                                        id="cuantiaMaxDeposito" value="2725578" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="claseTasaInteres">Clase Tasa Liquidacion</label>
+                                    <input class="form-control form-control-sm" type="text" name="claseTasaInteres"
+                                        id="claseTasaInteres" value="V" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tasaInteres">Tasa Interes Reconocida</label>
+                                    <input class="form-control form-control-sm" type="number" name="tasaInteres"
+                                        id="tasaInteres" value="0.03" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="frecLiqIntereses">Frecuencia Liquidacion
+                                        Interes</label>
+                                    <input class="form-control form-control-sm" type="text" name="frecLiqIntereses"
+                                        id="frecLiqIntereses" value="M" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tipoDeposito">Tipo Producto</label>
+                                    <input class="form-control form-control-sm" type="text" name="tipoDeposito"
+                                        id="tipoDeposito" value="DETO" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-success"
+                                        value="Seleccionar DETS">Seleccionar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -314,65 +303,61 @@
                                 aria-label="Cerrar"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud
-                                exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit
-                                in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat
-                                non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-                                adipiscing
-                                elit,
-                                sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-
-                            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint
-                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua.
-                                Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Seleccionar</button>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad adipisci dolor quidem atque
+                                veniam. Ut ipsa at, nesciunt dolore doloribus veniam aliquam cumque iste, amet expedita
+                                consequuntur dolorem consectetur dolor!</p>
+                            <form action="/portalTransaccional/eleccionProducto" method="POST"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                                <div class="mb-3">
+                                    <label class="form-label" for="depositoElectronico">Numero de Cuenta</label>
+                                    <input class="form-control form-control-sm" type="number" name="depositoElectronico"
+                                        id="depositoElectronico" value="{{ cliente[1] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="codigoCuenta">Cuenta Contable</label>
+                                    <input class="form-control form-control-sm" type="number" name="codigoCuenta"
+                                        id="codigoCuenta" value="21300504" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="ccnCliente">Codigo Cliente</label>
+                                    <input class="form-control form-control-sm" type="number" name="ccnCliente"
+                                        id="ccnCliente" value="{{ cliente[0] }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="cuantiaMaxDeposito">Valor Maximo Movimiento
+                                        Mensual</label>
+                                    <input class="form-control form-control-sm" type="number" name="cuantiaMaxDeposito"
+                                        id="cuantiaMaxDeposito" value="2725578" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="claseTasaInteres">Clase Tasa Liquidacion</label>
+                                    <input class="form-control form-control-sm" type="text" name="claseTasaInteres"
+                                        id="claseTasaInteres" value="V" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tasaInteres">Tasa Interes Reconocida</label>
+                                    <input class="form-control form-control-sm" type="number" name="tasaInteres"
+                                        id="tasaInteres" value="0.04" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="frecLiqIntereses">Frecuencia Liquidacion
+                                        Interes</label>
+                                    <input class="form-control form-control-sm" type="text" name="frecLiqIntereses"
+                                        id="frecLiqIntereses" value="M" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tipoDeposito">Tipo Producto</label>
+                                    <input class="form-control form-control-sm" type="text" name="tipoDeposito"
+                                        id="tipoDeposito" value="DETTS" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-success"
+                                        value="Seleccionar DETS">Seleccionar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -405,59 +390,59 @@
                         <button type="button" class="btn-Cerrar" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit
-                            in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat
-                            non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-                            adipiscing
-                            elit,
-                            sed
-                            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                            in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum
-                            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                            Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo
-                            consequat.</p>
-
-                        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                            in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum
-                            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                            Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo
-                            consequat.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Seleccionar</button>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad adipisci dolor quidem atque
+                            veniam. Ut ipsa at, nesciunt dolore doloribus veniam aliquam cumque iste, amet expedita
+                            consequuntur dolorem consectetur dolor!</p>
+                        <form action="/portalTransaccional/eleccionProducto" method="POST"
+                            enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                            <div class="mb-3">
+                                <label class="form-label" for="depositoElectronico">Numero de Cuenta</label>
+                                <input class="form-control form-control-sm" type="number" name="depositoElectronico"
+                                    id="depositoElectronico" value="{{ cliente[1] }}" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="codigoCuenta">Cuenta Contable</label>
+                                <input class="form-control form-control-sm" type="number" name="codigoCuenta"
+                                    id="codigoCuenta" value="21300505" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="ccnCliente">Codigo Cliente</label>
+                                <input class="form-control form-control-sm" type="number" name="ccnCliente"
+                                    id="ccnCliente" value="{{ cliente[0] }}" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="cuantiaMaxDeposito">Valor Maximo Movimiento
+                                    Mensual</label>
+                                <input class="form-control form-control-sm" type="number" name="cuantiaMaxDeposito"
+                                    id="cuantiaMaxDeposito" value="2725578" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="claseTasaInteres">Clase Tasa Liquidacion</label>
+                                <input class="form-control form-control-sm" type="text" name="claseTasaInteres"
+                                    id="claseTasaInteres" value="V" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="tasaInteres">Tasa Interes Reconocida</label>
+                                <input class="form-control form-control-sm" type="number" name="tasaInteres"
+                                    id="tasaInteres" value="0.05" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="frecLiqIntereses">Frecuencia Liquidacion Interes</label>
+                                <input class="form-control form-control-sm" type="text" name="frecLiqIntereses"
+                                    id="frecLiqIntereses" value="M" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="tipoDeposito">Tipo Producto</label>
+                                <input class="form-control form-control-sm" type="text" name="tipoDeposito"
+                                    id="tipoDeposito" value="DETTO" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-success"
+                                    value="Seleccionar DETS">Seleccionar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

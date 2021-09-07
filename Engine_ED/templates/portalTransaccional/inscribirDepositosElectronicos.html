@@ -1,0 +1,67 @@
+{% extends "portalTransaccional/basePortalTransaccional.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/inscribirDepositosElectronicos.css') }}">
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div>
+    <h2 style="text-align: center; margin-top: 30px;">INSCRIBIR DEPOSITO ELECTRONICO</h2>
+</div>
+
+<div class="contenedor">
+    
+    <form action="{{ url_for('inscribirDepositosElectronicos') }}" method="POST" enctype="multipart/form-data" class="divForm">
+
+        {{ form.hidden_tag() }}
+    
+        <div>
+            {{ form.tipoDeposito.label() }}
+            {{ form.tipoDeposito(class="form-control form-control-sm") }}
+            {% for error in form.tipoDeposito.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ form.depositoElectronico.label() }}
+            {{ form.depositoElectronico(class="form-control form-control-sm") }}
+            {% for error in form.depositoElectronico.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ form.nombrePersonalizado.label() }}
+            {{ form.nombrePersonalizado(class="form-control form-control-sm") }}
+            {% for error in form.nombrePersonalizado.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ form.tipoId.label() }}
+            {{ form.tipoId(class="form-control form-control-sm") }}
+            {% for error in form.tipoId.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ form.numeroIdCliente.label() }}
+            {{ form.numeroIdCliente(class="form-control form-control-sm") }}
+            {% for error in form.numeroIdCliente.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{form.inscribirDeposito(class="btn btn-success")}}
+        </div>
+    
+    </form>
+    
+</div>
+
+{% endblock %}
