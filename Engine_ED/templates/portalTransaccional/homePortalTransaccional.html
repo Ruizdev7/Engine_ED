@@ -1,9 +1,36 @@
 {% extends "portalTransaccional/basePortalTransaccional.html" %}
 {% block title %}{{ titulo }}{% endblock %}
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/homePortalTransaccional.css') }}">
 {{ super() }}
 {% endblock %}
 
 {% block content %}
+
+<div class="contenedor">
+    <div class="card w-100">
+        <div class="card-header">
+            Saldo por producto
+        </div>
+        <div class="card-body">
+            <table id="tablaSaldoDeposito" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Deposito Electronico</th>
+                        <th>Tipo de Deposito</th>
+                        <th>Saldo Disponible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ depositoCliente[0] }}</td>
+                        <td>{{ depositoCliente[7] }}</td>
+                        <td>{{ depositoCliente[8] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

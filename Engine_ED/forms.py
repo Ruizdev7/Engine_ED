@@ -7733,7 +7733,7 @@ class inscribirDepositos(FlaskForm):
     ('DECSE','Deposito Electronico Para Canalizar Subsidios Estatales'),
     ('DETO','Deposito Electronico De Tramite Ordinario'),
     ('DETTS','Deposito Electronico Transaccional De Tramite Simplificado'),
-    ('TI','Deposito Electronico Transaccional De Tramite Ordinario')], validators=[
+    ('DETTO','Deposito Electronico Transaccional De Tramite Ordinario')], validators=[
         Required(message='El campo es obligatorio'),
     ])
     depositoElectronico = IntegerField('Deposito Electronico Numero', validators=[
@@ -7764,9 +7764,4 @@ class transferir(FlaskForm):
     valorATransferir = IntegerField('Valor a Transferir', validators=[
         Required(message='El campos es obligatorio')
     ])
-    tipoTransferencia = SelectField('Tipo de Transferencia', choices=[
-        ('TL','Transferencia en linea'),
-        ('TS','Transferencia de Subsidio')], validators=[
-            Required(message='El campo es obligatorio'),
-        ])
     transferir = SubmitField("Realizar Transferencia")

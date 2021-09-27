@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/logo_transparent.png') }}">
-    <title>{% block title %}{{ titulo }}{% endblock %}Portal Transaccional</title>
+    <title>{% block title %}{{ titulo }}{% endblock %}</title>
     {% endblock %}
 </head>
 
@@ -75,7 +75,7 @@
                         <div>
                             <h2>A depositos electronicos en la misma entidad</h2>
                             <a href="{{ url_for('transferir') }}">Transferir</a>
-                            <a href="{{ url_for('inscribirDepositosElectronicos') }}">Inscribir depositos electronicos</a>
+                            <a href="{{ url_for('listaDepositosInscritos') }}">Inscribir depositos electronicos</a>
                             <a href="#">Ver historico</a>
                             <br>
                             <h2>Programar transferencias</h2>
@@ -132,6 +132,7 @@
     {% block content %}
 
     {% endblock %}
+
 </body>
 
 </html>

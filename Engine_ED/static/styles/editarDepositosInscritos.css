@@ -1,8 +1,12 @@
+h5 {
+    text-align: center;
+}
+
 .divForm{
     margin: 1rem;
     padding: 1rem;
     border: 2px solid #ccc;
-    height: 500px;
+    height: 650px;
     width: 500px;
 }
 

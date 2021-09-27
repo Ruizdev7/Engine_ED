@@ -7,18 +7,16 @@
 
 {% block content %}
 
-<h1>Hola desde Transferencias</h1>
-
 <div class="contenedor">
     
-    <form action="{{ url_for('inscribirDepositosElectronicos') }}" method="POST" enctype="multipart/form-data" class="divForm">
+    <form action="{{ url_for('transferir') }}" method="POST" enctype="multipart/form-data" class="divForm">
 
         {{ form.hidden_tag() }}
     
         <div>
-            <label class="form-label" for="depositoElectronico">Deposito de Origen</label>
-            <input class="form-control form-control-sm" type="number" name="depositoOrigen"
-                id="depositoOrigen" value="{{ deposito[0] }}" readonly>
+            <label class="form-label" for="productoOrigen">Deposito de Origen</label>
+            <input class="form-control form-control-sm" type="number" name="productoOrigen"
+                id="productoOrigen" value="{{ deposito[0] }}" readonly>
         </div>
         <br>
         <div>
@@ -33,14 +31,6 @@
             {{ form.valorATransferir.label() }}
             {{ form.valorATransferir(class="form-control form-control-sm") }}
             {% for error in form.valorATransferir.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-        </div>
-        <br>
-        <div>
-            {{ form.tipoTransferencia.label() }}
-            {{ form.tipoTransferencia(class="form-control form-control-sm") }}
-            {% for error in form.tipoTransferencia.errors %}
             <span>{{ error }}</span>
             {% endfor %}
         </div>
