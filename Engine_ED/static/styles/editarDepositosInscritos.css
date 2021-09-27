@@ -1,0 +1,17 @@
+h5 {
+    text-align: center;
+}
+
+.divForm{
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    height: 650px;
+    width: 500px;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

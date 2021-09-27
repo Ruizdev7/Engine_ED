@@ -1,0 +1,118 @@
+{% extends "portalTransaccional/basePortalTransaccional.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/listaDepositosInscritos.css') }}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="row" style="padding:20px;">
+        <div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#crear">
+                Agregar
+            </button>
+            <br>
+            <br>
+            <table id="tablaDepositosInscritos" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>tipoDeposito</th>
+                        <th>depositoElectronico</th>
+                        <th>nombrePersonalizado</th>
+                        <th>tipoId</th>
+                        <th>numeroIdCliente</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{ i[2] }}</td>
+                        <td>{{ i[3] }}</td>
+                        <td>{{ i[4] }}</td>
+                        <td>{{ i[5] }}</td>
+                        <td>{{ i[6] }}</td>
+                        <td>
+                            <a class="btn btn-secondary" href="/portalTransaccional/editarDepositoInscrito/{{ i[0] }}">
+                                Editar
+                            </a> |
+                            <a class="btn btn-danger" href="/portalTransaccional/eliminarDepositoInscrito/{{ i[0] }}">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Crear -->
+<div class="modal fade" id="crear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="crearLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearLabel">INSCRIBE UN DEPOSITO ELECTRONICO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url_for('inscribirDepositosElectronicos') }}" method="POST"
+                    enctype="multipart/form-data">
+
+                    {{ form.hidden_tag() }}
+
+                    <div>
+                        {{ form.tipoDeposito.label() }}
+                        {{ form.tipoDeposito(class="form-control form-control-sm") }}
+                        {% for error in form.tipoDeposito.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <div>
+                        {{ form.depositoElectronico.label() }}
+                        {{ form.depositoElectronico(class="form-control form-control-sm") }}
+                        {% for error in form.depositoElectronico.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <div>
+                        {{ form.nombrePersonalizado.label() }}
+                        {{ form.nombrePersonalizado(class="form-control form-control-sm") }}
+                        {% for error in form.nombrePersonalizado.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <div>
+                        {{ form.tipoId.label() }}
+                        {{ form.tipoId(class="form-control form-control-sm") }}
+                        {% for error in form.tipoId.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <div>
+                        {{ form.numeroIdCliente.label() }}
+                        {{ form.numeroIdCliente(class="form-control form-control-sm") }}
+                        {% for error in form.numeroIdCliente.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <div>
+                        {{form.inscribirDeposito(class="btn btn-success")}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

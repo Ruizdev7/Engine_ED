@@ -1,68 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "portalTransaccional/basePortalTransaccional.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/homePortalTransaccional.css') }}">
+{{ super() }}
+{% endblock %}
 
-<head>
-    {% block head %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-        </script>
-    <title>{% block title %}{{ titulo }}{% endblock %}</title>
-    {% endblock %}
-</head>
+{% block content %}
 
-<body>
-
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <div class="alert alert-success">
-            {{ message }}
+<div class="contenedor">
+    <div class="card w-100">
+        <div class="card-header">
+            Saldo por producto
         </div>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
+        <div class="card-body">
+            <table id="tablaSaldoDeposito" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Deposito Electronico</th>
+                        <th>Tipo de Deposito</th>
+                        <th>Saldo Disponible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ depositoCliente[0] }}</td>
+                        <td>{{ depositoCliente[7] }}</td>
+                        <td>{{ depositoCliente[8] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">Productos</a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{ url_for('productos') }}">Elige el producto de tu preferencia</a></li>
-        </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Transferencias
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Transferir</a></li>
-            <li><a class="dropdown-item" href="#">Inscribir depositos electronicos</a></li>
-            <li><a class="dropdown-item" href="#">Ver historico</a></li>
-            <li><a class="dropdown-item" href="#">Deposito electronico de tramite simplificado DETS </a></li>
-            <li><a class="dropdown-item" href="#">Deposito electronico transacional de tramite simplificado DETTS</a>
-            </li>
-            <li><a class="dropdown-item" href="#">Deposito electronico de tramite ordinario DETO</a></li>
-            <li><a class="dropdown-item" href="#">Deposito electronico transaccional de tramite ordinario DETTO</a></li>
-            <li><a class="dropdown-item" href="#">Deposito electronico para canalizar subsidios estatales DECSE</a></li>
-            <li><a class="dropdown-item" href="#">Ver tranferencias programadas</a></li>
-        </ul>
-    </li>
-    <br />
-    <br />
-    <br />
-    <br />
-    Estas en el portal transaccional
-    <p>PULSE ESTE ENLACE PARA CERRAR SESION <a href="{{ url_for('cerrarSesion') }}">ADIOS</a></p>
-    <div>{% block content %}{% endblock %}</div>
-</body>
-
-</html>
+{% endblock %}
