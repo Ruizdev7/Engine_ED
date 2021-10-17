@@ -216,8 +216,7 @@ def eleccionProducto():
                 `claseTasaInteres` = %s,
                 `tasaInteres` = %s,
                 `frecLiqIntereses` = %s,
-                `tipoDeposito` = %s,
-                `saldoDeposito` = %s;"""
+                `tipoDeposito` = %s;"""
 
             datos = (
                 depositoElectronico,
@@ -236,8 +235,8 @@ def eleccionProducto():
                 claseTasaInteres,
                 tasaInteres,
                 frecLiqIntereses,
-                tipoDeposito,
-                saldoDeposito)
+                tipoDeposito)
+                
             mycursor.execute(sql, datos)
             mydb.commit()
             print(mycursor.rowcount, "record(s) affected")
@@ -466,6 +465,34 @@ def transferir():
             print(mycursor.rowcount, "record(s) affected")
 
             return redirect(url_for('portalTransaccional'))
+    else:
+        mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
+        flash(mensajeErrorSesion)
+        return redirect(url_for('ingresoCliente'))
+
+
+@app.route('/portalTransaccional/listaConveniosInscritos', methods=['GET','POST'])
+def listaConveniosInscritos():
+    titulo = "Lista Convenios Inscritos"
+    #form = forms.inscribirDepositos(request.form)
+    if 'username' and 'idCliente' in session:
+        usuario = session['username']
+        if request.method == 'GET':
+            try:
+                mydb.connect()
+                mycursor = mydb.cursor()
+                sql = "select * from listaConvenios"
+                mycursor.execute(sql)
+                data = mycursor.fetchall()
+                print(data)
+            except Exception as e:
+                print(e)
+            finally:
+                mycursor.close()
+                mydb.close()
+                return render_template('portalTransaccional/listaConveniosInscritos.html', titulo=titulo, usuario=usuario, data=data)
+        else:
+            return render_template('portalTransaccional/listaConveniosInscritos.html', titulo=titulo, usuario=usuario)
     else:
         mensajeErrorSesion = 'No existe una sesion activa porfavor ingrese a la plataforma'
         flash(mensajeErrorSesion)

@@ -36,6 +36,7 @@
 
                 <div class="inputDiv one">
                     <div class="inputG">
+                        <br>
                         {{ form.correoElectronicoCliente.label(class="titleInput") }}
                         {{ form.correoElectronicoCliente(class="input") }}
                         {% for error in form.correoElectronicoCliente.errors %}
@@ -43,7 +44,6 @@
                         {% endfor %}
                     </div>
                 </div>
-
                 <div class="inputDiv two">
                     <div class="inputG">
                         {{ form.contraseñaCliente.label(class="titleInput") }}
