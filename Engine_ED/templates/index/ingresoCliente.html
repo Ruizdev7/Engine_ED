@@ -29,7 +29,7 @@
         {% endwith %}
 
         <div class="logingContainer">
-            <form action="/ingresoCliente" method="POST" enctype="multipart/form-data">
+            <form action="{{ url_for('landingPage.ingresoCliente') }}" method="POST" enctype="multipart/form-data">
                 {{ form.hidden_tag() }}
                 <img class="avatar" src="../static/imgs/icon/avatar_male.svg">
                 <h2>INICIAR SESION</h2>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="linkRegistro">
-                    <p>¿Aun no te has registrado? <a href="registroCliente">Registrese Ahora</a></p>
+                    <p>¿Aun no te has registrado? <a href="{{ url_for('landingPage.registroCliente') }}">Registrese Ahora</a></p>
                 </div>
 
                 <div>

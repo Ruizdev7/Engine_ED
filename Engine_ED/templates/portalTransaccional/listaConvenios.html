@@ -27,15 +27,15 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in data %}
+                {% for i in convenios %}
                 <tr>
-                    <td>{{ i[0] }}</td>
-                    <td>{{ i[1] }}</td>
-                    <td>{{ i[2] }}</td>
-                    <td>{{ i[3] }}</td>
-                    <td>{{ i[4] }}</td>
-                    <td>{{ i[5] }}</td>
-                    <td>{{ i[6] }}</td>
+                    <td>{{ i.codigoConvenio }}</td>
+                    <td>{{ i.nombreEmpresa }}</td>
+                    <td>{{ i.convenio }}</td>
+                    <td>{{ i.datoCaptura }}</td>
+                    <td>{{ i.modalidadConvenio }}</td>
+                    <td>{{ i.idMunicipio }}</td>
+                    <td>{{ i.idDepartamento }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

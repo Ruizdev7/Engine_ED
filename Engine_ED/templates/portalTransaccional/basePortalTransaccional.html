@@ -42,7 +42,7 @@
         </div>
 
         <div class="divIcons">
-            <span><a href="{{ url_for('cerrarSesion') }}"><i class="fas fa-sign-out-alt"></i></a>
+            <span><a href="{{ url_for('zonaTransaccional.cerrarSesion') }}"><i class="fas fa-sign-out-alt"></i></a>
                 <p class="salir">Salir</p>
             </span>
             <span><a href="#"><i class="fas fa-user-lock"></i></a>
@@ -62,11 +62,11 @@
         <nav id="menu-h">
             <ul class="Ul">
                 <li class="Pli">
-                    <a class="a-title" href="{{ url_for('portalTransaccional') }}">Inicio</a>
+                    <a class="a-title" href="{{ url_for('zonaTransaccional.portalTransaccional') }}">Inicio</a>
                 </li>
 
                 <li>
-                    <a class="a-title" href="{{ url_for('productos') }}">Productos</a>
+                    <a class="a-title" href="{{ url_for('zonaTransaccional.productos') }}">Productos</a>
                 </li>
                 <li>
                     <a class="a-title" href="#">Transferencias</a>
@@ -74,8 +74,8 @@
                     <div class="divLi">
                         <div>
                             <h2>A depositos electronicos en la misma entidad</h2>
-                            <a href="{{ url_for('transferir') }}">Transferir</a>
-                            <a href="{{ url_for('listaDepositosInscritos') }}">Inscribir depositos electronicos</a>
+                            <a href="#">Transferir</a>
+                            <a href="{{ url_for('zonaTransaccional.listaDepositosInscritos') }}">Inscribir depositos electronicos</a>
                             <a href="#">Ver historico</a>
                             <br>
                             <h2>Programar transferencias</h2>
@@ -93,7 +93,7 @@
                         <div>
                             <h2>Facturas</h2>
                             <a href="#">Consultar y Pagar</a>
-                            <a href="{{ url_for('listaConveniosInscritos') }}">Inscribir facturas</a>
+                            <a href="{{ url_for('zonaTransaccional.listaConvenios') }}">Inscribir facturas</a>
                             <a href="#">Ver historico</a>
                         </div>
                     </div>

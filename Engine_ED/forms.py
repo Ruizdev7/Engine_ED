@@ -16,11 +16,11 @@ class registroCliente(FlaskForm):
         Length(max=10, min=6, message='El campo debe tener entre 6 y 10 caracteres')
         ])
     tipoId = SelectField('Tipo Idenficacion', choices=[
-    ('CC','Cedula de Ciudadania'),
-    ('CE','Cedula de Extrangeria'),
-    ('PA','Pasaporte'),
-    ('RC','Registro Civil'),
-    ('TI','Tarjeta de Identidad')], validators=[
+    ('1','Cedula de Ciudadania'),
+    ('2','Cedula de Extrangeria'),
+    ('3','Pasaporte'),
+    ('4','Registro Civil'),
+    ('5','Tarjeta de Identidad')], validators=[
         Required(message='El campo es obligatorio'),
     ])
     fechaExpIdCliente = DateField('Fecha Expedicion Documento Identidad', format='%Y,%M,%D')
