@@ -8,6 +8,9 @@ class Roles(db.Model):
     idRoles = db.Column(db.String(7), nullable=False)
     descripcionRoles = db.Column(db.String(60), nullable=False)
     
+    #Relationships
+    clientes = db.relationship('Cliente', backref='roles', lazy=True)
+    
     
     def __init__(self, idRoles, descripcionRoles):
         

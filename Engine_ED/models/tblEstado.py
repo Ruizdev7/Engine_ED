@@ -8,6 +8,8 @@ class Estado(db.Model):
     idEstado = db.Column(db.String(1), nullable=False)
     descripcionEstado = db.Column(db.String(20), nullable=False)
     
+    #Relationships
+    clientes = db.relationship('Cliente', backref='estado', lazy=True)
 
     def __init__(self, idEstado, descripcionEstado):
         

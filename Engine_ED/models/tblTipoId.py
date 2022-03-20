@@ -4,13 +4,14 @@ from Engine_ED import db
 class TipoId(db.Model):
     
     __tablename__ = 'tblTipoId'
-    ccn = db.Column(db.Integer, primary_key=True)
-    tipoId = db.Column(db.Integer, nullable=False)
+    ccnTipoId = db.Column(db.Integer, primary_key=True)
+    tipoId = db.Column(db.String(2), nullable=False)
     descripcionTipoId = db.Column(db.String(40), nullable=False)
     
-    tipo_id = db.relationship('Cliente', backref='tipo_Id', lazy=True)
+    #Relationships
+    clientes = db.relationship('Cliente', backref='tipoId', lazy=True)
     
-
+    
     def __init__(self, tipoId, descripcionTipoId):
         
         self.tipoId = tipoId

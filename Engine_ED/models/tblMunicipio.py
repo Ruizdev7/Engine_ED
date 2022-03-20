@@ -7,14 +7,16 @@ class Municipio(db.Model):
     ccnMunicipios = db.Column(db.Integer, primary_key=True)
     idMunicipio = db.Column(db.Integer, nullable=False)
     descripcionMunicipio = db.Column(db.String(60), nullable=False)
-    idDepartamento = db.Column(db.Integer, nullable=False)
+    ccnDepartamento = db.Column(db.Integer, db.ForeignKey('tblDepartamentos.ccnDepartamento'), nullable=False)
     
+    #Relationships
+    clientes = db.relationship('Cliente', backref='municipio', lazy=True)
     
     def __init__(self, idMunicipio, descripcionMunicipio, idDepartamento):
         
         self.idMunicipio = idMunicipio
         self.descripcionMunicipio = descripcionMunicipio
-        self.idDepartamento = idDepartamento
+        self.ccnDepartamento = ccnDepartamento
         
         
     def __repr__(self):
