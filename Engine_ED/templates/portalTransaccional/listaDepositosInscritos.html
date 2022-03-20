@@ -3,6 +3,12 @@
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/listaDepositosInscritos.css') }}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+
+
 {{ super() }}
 {% endblock %}
 
@@ -19,6 +25,7 @@
             <table id="tablaDepositosInscritos" class="table table-hover">
                 <thead>
                     <tr>
+                        <th>ccn</th>
                         <th>tipoDeposito</th>
                         <th>depositoElectronico</th>
                         <th>nombrePersonalizado</th>
@@ -28,18 +35,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for i in data %}
-                    <tr>
-                        <td>{{ i[2] }}</td>
-                        <td>{{ i[3] }}</td>
-                        <td>{{ i[4] }}</td>
-                        <td>{{ i[5] }}</td>
-                        <td>{{ i[6] }}</td>
+                    {% for i in depInscrito %}<tr>
+                        <td>{{ i.ccnDepositosInscritos }}</td>
+                        <td>{{ i.tipoDeposito }}</td>
+                        <td>{{ i.depositoElectronico }}</td>
+                        <td>{{ i.nombrePersonalizado }}</td>
+                        <td>{{ i.tipoId }}</td>
+                        <td>{{ i.numeroIdCliente }}</td>
                         <td>
-                            <a class="btn btn-secondary" href="/portalTransaccional/editarDepositoInscrito/{{ i[0] }}">
+                            <a class="btn btn-secondary" href="/portalTransaccional/editarDepositoInscrito/{{ i.ccnDepositosInscritos }}">
                                 Editar
                             </a> |
-                            <a class="btn btn-danger" href="/portalTransaccional/eliminarDepositoInscrito/{{ i[0] }}">
+                            <a class="btn btn-danger" href="/portalTransaccional/eliminarDepositoInscrito/{{ i.ccnDepositosInscritos }}">
                                 Eliminar
                             </a>
                         </td>
@@ -51,6 +58,34 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    var table = $('#tablaDepositosInscritos').DataTable( {
+        lengthChange: true,
+        responsive: true,
+        buttons: [ 'excel','colvis' ]
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#tablaDepositosInscritos_wrapper .col-md-6:eq(0)' );
+} );
+</script>
+
+
 <!-- Modal Crear -->
 <div class="modal fade" id="crear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="crearLabel" aria-hidden="true">
@@ -61,7 +96,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ url_for('inscribirDepositosElectronicos') }}" method="POST"
+                <form action="{{ url_for('zonaTransaccional.inscribirDepositosElectronicos') }}" method="POST"
                     enctype="multipart/form-data">
 
                     {{ form.hidden_tag() }}

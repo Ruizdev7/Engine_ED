@@ -12,7 +12,7 @@
 <div class="contenedor">
     <div>
         <div class="divForm">
-            <form action="{{ url_for('procesoEdicionDepositoElectronico') }}" method="POST"
+            <form action="{{ url_for('zonaTransaccional.procesoEdicionDepositoElectronico') }}" method="POST"
                 enctype="multipart/form-data">
 
                 <h5>EDITAR UN DEPOSITO ELECTRONICO</h5>
@@ -22,8 +22,8 @@
 
                 <div>
                     <label class="form-label" for="ccnDepositoInscrito">Codigo Deposito Inscrito</label>
-                    <input class="form-control form-control-sm" type="number" name="ccnDepositoInscrito" id="ccnDepositoInscrito"
-                        value="{{ data2[0] }}" readonly>
+                    <input class="form-control form-control-sm" type="number" name="ccnDepositoInscrito" id="ccnDepositoInscrito" 
+                    value="{{ editarDeposito.ccnDepositosInscritos }}" readonly>
                 </div>
                 <br>
                 <div>
@@ -33,7 +33,7 @@
                 <br>
                 <div>
                     {{ form.depositoElectronico.label() }}
-                    {{ form.depositoElectronico(class="form-control form-control-sm", value=data2[3]) }}
+                    {{ form.depositoElectronico(class="form-control form-control-sm", value=editarDeposito.depositoElectronico) }}
                     {% for error in form.depositoElectronico.errors %}
                     <span>{{ error }}</span>
                     {% endfor %}
@@ -41,7 +41,7 @@
                 <br>
                 <div>
                     {{ form.nombrePersonalizado.label() }}
-                    {{ form.nombrePersonalizado(class="form-control form-control-sm", value=data2[4]) }}
+                    {{ form.nombrePersonalizado(class="form-control form-control-sm", value=editarDeposito.nombrePersonalizado)}}
                     {% for error in form.nombrePersonalizado.errors %}
                     <span>{{ error }}</span>
                     {% endfor %}
@@ -49,7 +49,7 @@
                 <br>
                 <div>
                     {{ form.tipoId.label() }}
-                    {{ form.tipoId(class="form-control form-control-sm") }}
+                    {{ form.tipoId(class="form-control form-control-sm", value=editarDeposito.tipoDeposito) }}
                     {% for error in form.tipoId.errors %}
                     <span>{{ error }}</span>
                     {% endfor %}
@@ -57,7 +57,7 @@
                 <br>
                 <div>
                     {{ form.numeroIdCliente.label() }}
-                    {{ form.numeroIdCliente(class="form-control form-control-sm", value=data2[6]) }}
+                    {{ form.numeroIdCliente(class="form-control form-control-sm", value=editarDeposito.numeroIdCliente) }}
                     {% for error in form.numeroIdCliente.errors %}
                     <span>{{ error }}</span>
                     {% endfor %}
